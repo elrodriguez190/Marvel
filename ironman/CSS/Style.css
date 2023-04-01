@@ -1,0 +1,22 @@
+*{
+    padding: 0;
+    margin: 0;
+}
+body{
+     display: flex;
+     justify-content: center;
+     align-items: center;
+     min-height: 100vh;
+     flex-direction: column;
+}
+#dateT{
+    padding: 20px 30px 30px;
+    font-size: 2rem;
+    border: none;
+    outline: none;
+    box-shadow: none;
+    letter-spacing: 0.01em;
+    border-radius: 8px;
+    color: white;
+    background-color:blue;
+}
