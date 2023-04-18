@@ -1,0 +1,11 @@
+#dateT {
+    background-color: rgb(89, 0, 255);
+    width: 100px;
+     height: 100px;
+     transition: width 2s;
+    margin-left: 30rem;
+     margin-top: 20rem;
+}
+#dateT:hover {
+    width: 300px;
+  }
