@@ -1,16 +1,651 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="style.css">
-    <title>Doctor Strange 🧛🏻‍♂️ </title>
-</head>
-<body>
-    <button id="dateT" onclick='ShowDate()'>Today!</button>´
-    <p id="dateShow"></p>
-    
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="style.css" />
+    <link
+      href="https://cdnjs.cloudflare.com/ajax/libs/flowbite/1.6.5/flowbite.min.css"
+      rel="stylesheet"
+    />
+
+    <title>Doctor Strange 🧛🏻‍♂️</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/flowbite/1.6.5/flowbite.min.js"></script>
+  </head>
+  <body>
+    <div class="flex flex-col items-center box-border">
+      <input
+        class="w-2/4 p-1"
+        type="text"
+        placeholder="Código o nombre del superheroe"
+      />
+      <button id="dateT" onclick="ShowDate()">Today!</button>
+      <p class="text-center" id="dateShow"></p>
+    </div>
+    <!-- NAVBAR -->
+    <div id="nav-marvel">
+      <nav
+        class="bg-white dark:bg-gray-900 w-full z-20 top-0 left-0 border-b border-gray-200 dark:border-gray-600"
+      >
+        <div
+          class="max-w-screen-xl flex flex-wrap items-center justify-between mx-auto p-4"
+        >
+          <a href="https://flowbite.com/" class="flex items-center">
+            <img
+              src="https://flowbite.com/docs/images/logo.svg"
+              class="h-8 mr-3"
+              alt="Flowbite Logo"
+            />
+            <span
+              class="self-center text-2xl font-semibold whitespace-nowrap dark:text-white"
+              >Flowbite</span
+            >
+          </a>
+          <div class="flex md:order-2">
+            <button
+              data-collapse-toggle="navbar-sticky"
+              type="button"
+              class="inline-flex items-center p-2 text-sm text-gray-500 rounded-lg md:hidden hover:bg-gray-100 focus:outline-none focus:ring-2 focus:ring-gray-200 dark:text-gray-400 dark:hover:bg-gray-700 dark:focus:ring-gray-600"
+              aria-controls="navbar-sticky"
+              aria-expanded="false"
+            >
+              <span class="sr-only">Open main menu</span>
+              <svg
+                class="w-6 h-6"
+                aria-hidden="true"
+                fill="currentColor"
+                viewBox="0 0 20 20"
+                xmlns="http://www.w3.org/2000/svg"
+              >
+                <path
+                  fill-rule="evenodd"
+                  d="M3 5a1 1 0 011-1h12a1 1 0 110 2H4a1 1 0 01-1-1zM3 10a1 1 0 011-1h12a1 1 0 110 2H4a1 1 0 01-1-1zM3 15a1 1 0 011-1h12a1 1 0 110 2H4a1 1 0 01-1-1z"
+                  clip-rule="evenodd"
+                ></path>
+              </svg>
+            </button>
+          </div>
+          <div
+            class="items-end justify-between hidden w-full md:flex md:w-auto md:order-1"
+            id="navbar-sticky"
+          >
+            <ul
+              class="flex flex-col p-4 md:p-0 mt-4 font-medium border border-gray-100 rounded-lg bg-gray-50 md:flex-row md:space-x-8 md:mt-0 md:border-0 md:bg-white dark:bg-gray-800 md:dark:bg-gray-900 dark:border-gray-700"
+            >
+              <li>
+                <a
+                  href="#principal-marvel"
+                  class="block py-2 pl-3 pr-4 text-white bg-blue-700 rounded md:bg-transparent md:text-blue-700 md:p-0 dark:text-white md:dark:text-blue-500"
+                  aria-current="page"
+                  >Home</a
+                >
+              </li>
+              <li>
+                <a
+                  href="#biography-marvel"
+                  class="block py-2 pl-3 pr-4 text-gray-900 rounded hover:bg-gray-100 md:hover:bg-transparent md:border-0 md:hover:text-blue-700 md:p-0 dark:text-white md:dark:hover:text-blue-500 dark:hover:bg-gray-700 dark:hover:text-white md:dark:hover:bg-transparent"
+                  >Biografia</a
+                >
+              </li>
+              <li>
+                <a
+                  href="#gallery-marvel"
+                  class="block py-2 pl-3 pr-4 text-gray-900 rounded hover:bg-gray-100 md:hover:bg-transparent md:border-0 md:hover:text-blue-700 md:p-0 dark:text-white md:dark:hover:text-blue-500 dark:hover:bg-gray-700 dark:hover:text-white md:dark:hover:bg-transparent"
+                  >galeria</a
+                >
+              </li>
+              <li>
+                <a
+                  href="#comics-marvel"
+                  class="block py-2 pl-3 pr-4 text-gray-900 rounded hover:bg-gray-100 md:hover:bg-transparent md:border-0 md:hover:text-blue-700 md:p-0 dark:text-white md:dark:hover:text-blue-500 dark:hover:bg-gray-700 dark:hover:text-white md:dark:hover:bg-transparent"
+                  >comics y peliculas</a
+                >
+              </li>
+              <li>
+                <a
+                  href="#news-marvel"
+                  class="block py-2 pl-3 pr-4 text-gray-900 rounded hover:bg-gray-100 md:hover:bg-transparent md:border-0 md:hover:text-blue-700 md:p-0 dark:text-white md:dark:hover:text-blue-500 dark:hover:bg-gray-700 dark:hover:text-white md:dark:hover:bg-transparent"
+                  >news</a
+                >
+              </li>
+              <li>
+                <a
+                  href="#contact-marvel"
+                  class="block py-2 pl-3 pr-4 text-gray-900 rounded hover:bg-gray-100 md:hover:bg-transparent md:border-0 md:hover:text-blue-700 md:p-0 dark:text-white md:dark:hover:text-blue-500 dark:hover:bg-gray-700 dark:hover:text-white md:dark:hover:bg-transparent"
+                  >contacto</a
+                >
+              </li>
+
+              <li>
+                <a
+                  href="#calculator-marvel"
+                  class="block py-2 pl-3 pr-4 text-gray-900 rounded hover:bg-gray-100 md:hover:bg-transparent md:border-0 md:hover:text-blue-700 md:p-0 dark:text-white md:dark:hover:text-blue-500 dark:hover:bg-gray-700 dark:hover:text-white md:dark:hover:bg-transparent"
+                  >calculadora</a
+                >
+              </li>
+            </ul>
+          </div>
+        </div>
+      </nav>
+    </div>
+    <main class="container mx-auto py-8">
+      <!-- PRINCIPAL -->
+      <div class="" id="principal-marvel">
+        <section class="text-center" id="principal">
+          <h2 class="text-3xl font-bold">¡Conoce a nuestro superhéroe!</h2>
+          <img
+            src="data:image/jpeg;base64,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"
+            alt="Superhéroe"
+            class="mx-auto mt-8 rounded-full w-64 h-64"
+          />
+          <p class="mt-4">
+            Breve resumen de habilidades y poderes del superhéroe.
+          </p>
+        </section>
+      </div>
+
+      <!-- BIOGRAPHY -->
+      <div class="flex justify-center" id="biography-marvel">
+        <a
+          href="#"
+          class="flex flex-col items-center bg-white border border-gray-200 rounded-lg shadow md:flex-row md:max-w-xl w-4/5 hover:bg-gray-100 dark:border-gray-700 dark:bg-gray-800 dark:hover:bg-gray-700"
+        >
+          <!-- <img
+            class="object-cover w-full rounded-t-lg h-96 md:h-auto md:w-48 md:rounded-none md:rounded-l-lg"
+            src="/docs/images/blog/image-4.jpg"
+            alt=""
+          /> -->
+          <div class="flex flex-col justify-between p-4 leading-normal">
+            <h5
+              class="mb-2 text-2xl font-bold tracking-tight text-gray-900 dark:text-white"
+            >
+              origen, historia, habilidades, poderes, debilidades y otros
+              detalles relevantes
+            </h5>
+            <p class="mb-3 font-normal text-gray-700 dark:text-gray-400">
+              Here are the biggest enterprise technology acquisitions of 2021 so
+              far, in reverse chronological order.
+            </p>
+          </div>
+        </a>
+      </div>
+
+      <!-- GALLERY -->
+      <div class="" id="gallery-marvel">
+        <div id="gallery" class="relative w-full" data-carousel="slide">
+          <!-- Carousel wrapper -->
+          <div class="relative h-56 overflow-hidden rounded-lg md:h-96">
+            <!-- Item 1 -->
+            <div class="hidden duration-700 ease-in-out" data-carousel-item>
+              <img
+                src="https://i.blogs.es/695ffd/doctor-strange-scarlet-witch-apprentice/1366_2000.jpeg"
+                class="absolute block max-w-full h-auto -translate-x-1/2 -translate-y-1/2 top-1/2 left-1/2"
+                alt=""
+              />
+            </div>
+            <!-- Item 1 -->
+            <div class="hidden duration-700 ease-in-out" data-carousel-item>
+              <img
+                src="https://i.blogs.es/695ffd/doctor-strange-scarlet-witch-apprentice/1366_2000.jpeg"
+                class="absolute block max-w-full h-auto -translate-x-1/2 -translate-y-1/2 top-1/2 left-1/2"
+                alt=""
+              />
+            </div>
+            <!-- Slider controls -->
+            <button
+              type="button"
+              class="absolute top-0 left-0 z-30 flex items-center justify-center h-full px-4 cursor-pointer group focus:outline-none"
+              data-carousel-prev
+            >
+              <span
+                class="inline-flex items-center justify-center w-10 h-10 rounded-full bg-white/30 dark:bg-gray-800/30 group-hover:bg-white/50 dark:group-hover:bg-gray-800/60 group-focus:ring-4 group-focus:ring-white dark:group-focus:ring-gray-800/70 group-focus:outline-none"
+              >
+                <svg
+                  aria-hidden="true"
+                  class="w-6 h-6 text-white dark:text-gray-800"
+                  fill="none"
+                  stroke="currentColor"
+                  viewBox="0 0 24 24"
+                  xmlns="http://www.w3.org/2000/svg"
+                >
+                  <path
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                    stroke-width="2"
+                    d="M15 19l-7-7 7-7"
+                  ></path>
+                </svg>
+                <span class="sr-only">Previous</span>
+              </span>
+            </button>
+            <button
+              type="button"
+              class="absolute top-0 right-0 z-30 flex items-center justify-center h-full px-4 cursor-pointer group focus:outline-none"
+              data-carousel-next
+            >
+              <span
+                class="inline-flex items-center justify-center w-10 h-10 rounded-full bg-white/30 dark:bg-gray-800/30 group-hover:bg-white/50 dark:group-hover:bg-gray-800/60 group-focus:ring-4 group-focus:ring-white dark:group-focus:ring-gray-800/70 group-focus:outline-none"
+              >
+                <svg
+                  aria-hidden="true"
+                  class="w-6 h-6 text-white dark:text-gray-800"
+                  fill="none"
+                  stroke="currentColor"
+                  viewBox="0 0 24 24"
+                  xmlns="http://www.w3.org/2000/svg"
+                >
+                  <path
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                    stroke-width="2"
+                    d="M9 5l7 7-7 7"
+                  ></path>
+                </svg>
+                <span class="sr-only">Next</span>
+              </span>
+            </button>
+          </div>
+        </div>
+      </div>
+
+      <!-- COMICS AND MOVIES -->
+      <div class="" id="comics-marvel">
+        <div class="grid grid-cols-2 md:grid-cols-3 gap-4">
+          <div>
+            <img
+              class="h-auto max-w-full rounded-lg"
+              src="https://flowbite.s3.amazonaws.com/docs/gallery/square/image.jpg"
+              alt=""
+            />
+          </div>
+          <div>
+            <img
+              class="h-auto max-w-full rounded-lg"
+              src="https://flowbite.s3.amazonaws.com/docs/gallery/square/image-1.jpg"
+              alt=""
+            />
+          </div>
+          <div>
+            <img
+              class="h-auto max-w-full rounded-lg"
+              src="https://flowbite.s3.amazonaws.com/docs/gallery/square/image-2.jpg"
+              alt=""
+            />
+          </div>
+          <div>
+            <img
+              class="h-auto max-w-full rounded-lg"
+              src="https://flowbite.s3.amazonaws.com/docs/gallery/square/image-3.jpg"
+              alt=""
+            />
+          </div>
+          <div>
+            <img
+              class="h-auto max-w-full rounded-lg"
+              src="https://flowbite.s3.amazonaws.com/docs/gallery/square/image-4.jpg"
+              alt=""
+            />
+          </div>
+          <div>
+            <img
+              class="h-auto max-w-full rounded-lg"
+              src="https://flowbite.s3.amazonaws.com/docs/gallery/square/image-5.jpg"
+              alt=""
+            />
+          </div>
+          <div>
+            <img
+              class="h-auto max-w-full rounded-lg"
+              src="https://flowbite.s3.amazonaws.com/docs/gallery/square/image-6.jpg"
+              alt=""
+            />
+          </div>
+          <div>
+            <img
+              class="h-auto max-w-full rounded-lg"
+              src="https://flowbite.s3.amazonaws.com/docs/gallery/square/image-7.jpg"
+              alt=""
+            />
+          </div>
+          <div>
+            <img
+              class="h-auto max-w-full rounded-lg"
+              src="https://flowbite.s3.amazonaws.com/docs/gallery/square/image-8.jpg"
+              alt=""
+            />
+          </div>
+          <div>
+            <img
+              class="h-auto max-w-full rounded-lg"
+              src="https://flowbite.s3.amazonaws.com/docs/gallery/square/image-9.jpg"
+              alt=""
+            />
+          </div>
+          <div>
+            <img
+              class="h-auto max-w-full rounded-lg"
+              src="https://flowbite.s3.amazonaws.com/docs/gallery/square/image-10.jpg"
+              alt=""
+            />
+          </div>
+          <div>
+            <img
+              class="h-auto max-w-full rounded-lg"
+              src="https://flowbite.s3.amazonaws.com/docs/gallery/square/image-11.jpg"
+              alt=""
+            />
+          </div>
+        </div>
+      </div>
+
+      <!-- NEWS -->
+      <div class="" id="news-marvel">
+        <div
+          id="default-carousel"
+          class="relative w-full"
+          data-carousel="slide"
+        >
+          <!-- Carousel wrapper -->
+          <div class="relative h-56 overflow-hidden rounded-lg md:h-96">
+            <!-- Item 1 -->
+            <div class="hidden duration-700 ease-in-out" data-carousel-item>
+              <img
+                src="https://townsquare.media/site/622/files/2016/11/strange-feat.jpg?w=980&q=75"
+                class="absolute block w-full -translate-x-1/2 -translate-y-1/2 top-1/2 left-1/2"
+                alt="..."
+              />
+            </div>
+            <!-- Item 1 -->
+            <div class="hidden duration-700 ease-in-out" data-carousel-item>
+              <img
+                src="https://peru21.pe/resizer/Ue0GiFnFHaOtNrtBHhdH_gHGFwo=/1200x900/smart/filters:format(jpeg):quality(75)/cloudfront-us-east-1.images.arcpublishing.com/elcomercio/N7TS2T66NVESVNH4S4XD6OCSM4.jpg"
+                class="absolute block w-full -translate-x-1/2 -translate-y-1/2 top-1/2 left-1/2"
+                alt="..."
+              />
+            </div>
+          </div>
+          <!-- Slider indicators -->
+          <div
+            class="absolute z-30 flex space-x-3 -translate-x-1/2 bottom-5 left-1/2"
+          >
+            <button
+              type="button"
+              class="w-3 h-3 rounded-full"
+              aria-current="true"
+              aria-label="Slide 1"
+              data-carousel-slide-to="0"
+            ></button>
+            <button
+              type="button"
+              class="w-3 h-3 rounded-full"
+              aria-current="false"
+              aria-label="Slide 2"
+              data-carousel-slide-to="1"
+            ></button>
+            <button
+              type="button"
+              class="w-3 h-3 rounded-full"
+              aria-current="false"
+              aria-label="Slide 3"
+              data-carousel-slide-to="2"
+            ></button>
+            <button
+              type="button"
+              class="w-3 h-3 rounded-full"
+              aria-current="false"
+              aria-label="Slide 4"
+              data-carousel-slide-to="3"
+            ></button>
+            <button
+              type="button"
+              class="w-3 h-3 rounded-full"
+              aria-current="false"
+              aria-label="Slide 5"
+              data-carousel-slide-to="4"
+            ></button>
+          </div>
+          <!-- Slider controls -->
+          <button
+            type="button"
+            class="absolute top-0 left-0 z-30 flex items-center justify-center h-full px-4 cursor-pointer group focus:outline-none"
+            data-carousel-prev
+          >
+            <span
+              class="inline-flex items-center justify-center w-8 h-8 rounded-full sm:w-10 sm:h-10 bg-white/30 dark:bg-gray-800/30 group-hover:bg-white/50 dark:group-hover:bg-gray-800/60 group-focus:ring-4 group-focus:ring-white dark:group-focus:ring-gray-800/70 group-focus:outline-none"
+            >
+              <svg
+                aria-hidden="true"
+                class="w-5 h-5 text-white sm:w-6 sm:h-6 dark:text-gray-800"
+                fill="none"
+                stroke="currentColor"
+                viewBox="0 0 24 24"
+                xmlns="http://www.w3.org/2000/svg"
+              >
+                <path
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                  stroke-width="2"
+                  d="M15 19l-7-7 7-7"
+                ></path>
+              </svg>
+              <span class="sr-only">Previous</span>
+            </span>
+          </button>
+          <button
+            type="button"
+            class="absolute top-0 right-0 z-30 flex items-center justify-center h-full px-4 cursor-pointer group focus:outline-none"
+            data-carousel-next
+          >
+            <span
+              class="inline-flex items-center justify-center w-8 h-8 rounded-full sm:w-10 sm:h-10 bg-white/30 dark:bg-gray-800/30 group-hover:bg-white/50 dark:group-hover:bg-gray-800/60 group-focus:ring-4 group-focus:ring-white dark:group-focus:ring-gray-800/70 group-focus:outline-none"
+            >
+              <svg
+                aria-hidden="true"
+                class="w-5 h-5 text-white sm:w-6 sm:h-6 dark:text-gray-800"
+                fill="none"
+                stroke="currentColor"
+                viewBox="0 0 24 24"
+                xmlns="http://www.w3.org/2000/svg"
+              >
+                <path
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                  stroke-width="2"
+                  d="M9 5l7 7-7 7"
+                ></path>
+              </svg>
+              <span class="sr-only">Next</span>
+            </span>
+          </button>
+        </div>
+      </div>
+
+      <!-- CONTACT FORM -->
+      <div class="" id="contact-marvel">
+        <form>
+          <div class="relative z-0 w-full mb-6 group">
+            <input
+              type="email"
+              name="floating_email"
+              id="floating_email"
+              class="block py-2.5 px-0 w-full text-sm text-gray-900 bg-transparent border-0 border-b-2 border-gray-300 appearance-none dark:text-white dark:border-gray-600 dark:focus:border-blue-500 focus:outline-none focus:ring-0 focus:border-blue-600 peer"
+              placeholder=" "
+              required
+            />
+            <label
+              for="floating_email"
+              class="peer-focus:font-medium absolute text-sm text-gray-500 dark:text-gray-400 duration-300 transform -translate-y-6 scale-75 top-3 -z-10 origin-[0] peer-focus:left-0 peer-focus:text-blue-600 peer-focus:dark:text-blue-500 peer-placeholder-shown:scale-100 peer-placeholder-shown:translate-y-0 peer-focus:scale-75 peer-focus:-translate-y-6"
+              >Email address</label
+            >
+          </div>
+          <div class="relative z-0 w-full mb-6 group">
+            <input
+              type="password"
+              name="floating_password"
+              id="floating_password"
+              class="block py-2.5 px-0 w-full text-sm text-gray-900 bg-transparent border-0 border-b-2 border-gray-300 appearance-none dark:text-white dark:border-gray-600 dark:focus:border-blue-500 focus:outline-none focus:ring-0 focus:border-blue-600 peer"
+              placeholder=" "
+              required
+            />
+            <label
+              for="floating_password"
+              class="peer-focus:font-medium absolute text-sm text-gray-500 dark:text-gray-400 duration-300 transform -translate-y-6 scale-75 top-3 -z-10 origin-[0] peer-focus:left-0 peer-focus:text-blue-600 peer-focus:dark:text-blue-500 peer-placeholder-shown:scale-100 peer-placeholder-shown:translate-y-0 peer-focus:scale-75 peer-focus:-translate-y-6"
+              >Password</label
+            >
+          </div>
+          <div class="relative z-0 w-full mb-6 group">
+            <input
+              type="password"
+              name="repeat_password"
+              id="floating_repeat_password"
+              class="block py-2.5 px-0 w-full text-sm text-gray-900 bg-transparent border-0 border-b-2 border-gray-300 appearance-none dark:text-white dark:border-gray-600 dark:focus:border-blue-500 focus:outline-none focus:ring-0 focus:border-blue-600 peer"
+              placeholder=" "
+              required
+            />
+            <label
+              for="floating_repeat_password"
+              class="peer-focus:font-medium absolute text-sm text-gray-500 dark:text-gray-400 duration-300 transform -translate-y-6 scale-75 top-3 -z-10 origin-[0] peer-focus:left-0 peer-focus:text-blue-600 peer-focus:dark:text-blue-500 peer-placeholder-shown:scale-100 peer-placeholder-shown:translate-y-0 peer-focus:scale-75 peer-focus:-translate-y-6"
+              >Confirm password</label
+            >
+          </div>
+          <div class="grid md:grid-cols-2 md:gap-6">
+            <div class="relative z-0 w-full mb-6 group">
+              <input
+                type="text"
+                name="floating_first_name"
+                id="floating_first_name"
+                class="block py-2.5 px-0 w-full text-sm text-gray-900 bg-transparent border-0 border-b-2 border-gray-300 appearance-none dark:text-white dark:border-gray-600 dark:focus:border-blue-500 focus:outline-none focus:ring-0 focus:border-blue-600 peer"
+                placeholder=" "
+                required
+              />
+              <label
+                for="floating_first_name"
+                class="peer-focus:font-medium absolute text-sm text-gray-500 dark:text-gray-400 duration-300 transform -translate-y-6 scale-75 top-3 -z-10 origin-[0] peer-focus:left-0 peer-focus:text-blue-600 peer-focus:dark:text-blue-500 peer-placeholder-shown:scale-100 peer-placeholder-shown:translate-y-0 peer-focus:scale-75 peer-focus:-translate-y-6"
+                >First name</label
+              >
+            </div>
+            <div class="relative z-0 w-full mb-6 group">
+              <input
+                type="text"
+                name="floating_last_name"
+                id="floating_last_name"
+                class="block py-2.5 px-0 w-full text-sm text-gray-900 bg-transparent border-0 border-b-2 border-gray-300 appearance-none dark:text-white dark:border-gray-600 dark:focus:border-blue-500 focus:outline-none focus:ring-0 focus:border-blue-600 peer"
+                placeholder=" "
+                required
+              />
+              <label
+                for="floating_last_name"
+                class="peer-focus:font-medium absolute text-sm text-gray-500 dark:text-gray-400 duration-300 transform -translate-y-6 scale-75 top-3 -z-10 origin-[0] peer-focus:left-0 peer-focus:text-blue-600 peer-focus:dark:text-blue-500 peer-placeholder-shown:scale-100 peer-placeholder-shown:translate-y-0 peer-focus:scale-75 peer-focus:-translate-y-6"
+                >Last name</label
+              >
+            </div>
+          </div>
+          <div class="grid md:grid-cols-2 md:gap-6">
+            <div class="relative z-0 w-full mb-6 group">
+              <input
+                type="tel"
+                pattern="[0-9]{3}-[0-9]{3}-[0-9]{4}"
+                name="floating_phone"
+                id="floating_phone"
+                class="block py-2.5 px-0 w-full text-sm text-gray-900 bg-transparent border-0 border-b-2 border-gray-300 appearance-none dark:text-white dark:border-gray-600 dark:focus:border-blue-500 focus:outline-none focus:ring-0 focus:border-blue-600 peer"
+                placeholder=" "
+                required
+              />
+              <label
+                for="floating_phone"
+                class="peer-focus:font-medium absolute text-sm text-gray-500 dark:text-gray-400 duration-300 transform -translate-y-6 scale-75 top-3 -z-10 origin-[0] peer-focus:left-0 peer-focus:text-blue-600 peer-focus:dark:text-blue-500 peer-placeholder-shown:scale-100 peer-placeholder-shown:translate-y-0 peer-focus:scale-75 peer-focus:-translate-y-6"
+                >Phone number (123-456-7890)</label
+              >
+            </div>
+            <div class="relative z-0 w-full mb-6 group">
+              <input
+                type="text"
+                name="floating_company"
+                id="floating_company"
+                class="block py-2.5 px-0 w-full text-sm text-gray-900 bg-transparent border-0 border-b-2 border-gray-300 appearance-none dark:text-white dark:border-gray-600 dark:focus:border-blue-500 focus:outline-none focus:ring-0 focus:border-blue-600 peer"
+                placeholder=" "
+                required
+              />
+              <label
+                for="floating_company"
+                class="peer-focus:font-medium absolute text-sm text-gray-500 dark:text-gray-400 duration-300 transform -translate-y-6 scale-75 top-3 -z-10 origin-[0] peer-focus:left-0 peer-focus:text-blue-600 peer-focus:dark:text-blue-500 peer-placeholder-shown:scale-100 peer-placeholder-shown:translate-y-0 peer-focus:scale-75 peer-focus:-translate-y-6"
+                >Company (Ex. Google)</label
+              >
+            </div>
+          </div>
+          <button
+            type="submit"
+            class="text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm w-full sm:w-auto px-5 py-2.5 text-center dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800"
+          >
+            Submit
+          </button>
+        </form>
+      </div>
+
+      <!-- CALCULATOR -->
+      <div class="" id="calculator-marvel">
+        <form class="flex flex-col items-center">
+          <div class="flex flex-col items-center">
+            <div>
+              <label for="underline_select" class="sr-only"
+                >Underline select</label
+              >
+              <select
+                id="underline_select"
+                class="mb-2 block py-2.5 px-0 w-full text-sm text-gray-500 bg-transparent border-0 border-b-2 border-gray-200 appearance-none dark:text-gray-400 dark:border-gray-700 focus:outline-none focus:ring-0 focus:border-gray-200 peer"
+              >
+                <option selected>Escoge la operacion</option>
+                <option value="MUL">Division (/)</option>
+                <option value="DIV">Multiplicacion (*)</option>
+                <option value="RES">Resta (-)</option>
+                <option value="SUM">Suma (+)</option>
+              </select>
+            </div>
+            <div class="relative z-0 w-full mb-6 group">
+              <input
+                type="number"
+                name="firstNum"
+                id="firstNum"
+                class="block py-2.5 px-0 w-full text-sm text-gray-900 bg-transparent border-0 border-b-2 border-gray-300 appearance-none dark:text-white dark:border-gray-600 dark:focus:border-blue-500 focus:outline-none focus:ring-0 focus:border-blue-600 peer"
+                placeholder=" "
+                required
+              />
+              <label
+                for="floating_company"
+                class="peer-focus:font-medium absolute text-sm text-gray-500 dark:text-gray-400 duration-300 transform -translate-y-6 scale-75 top-3 -z-10 origin-[0] peer-focus:left-0 peer-focus:text-blue-600 peer-focus:dark:text-blue-500 peer-placeholder-shown:scale-100 peer-placeholder-shown:translate-y-0 peer-focus:scale-75 peer-focus:-translate-y-6"
+                >Primer Numero</label
+              >
+            </div>
+
+            <div class="relative z-0 w-full mb-6 group">
+              <input
+                type="number"
+                name="secondNum"
+                id="secondNum"
+                class="block py-2.5 px-0 w-full text-sm text-gray-900 bg-transparent border-0 border-b-2 border-gray-300 appearance-none dark:text-white dark:border-gray-600 dark:focus:border-blue-500 focus:outline-none focus:ring-0 focus:border-blue-600 peer"
+                placeholder=" "
+                required
+              />
+              <label
+                for="floating_company"
+                class="peer-focus:font-medium absolute text-sm text-gray-500 dark:text-gray-400 duration-300 transform -translate-y-6 scale-75 top-3 -z-10 origin-[0] peer-focus:left-0 peer-focus:text-blue-600 peer-focus:dark:text-blue-500 peer-placeholder-shown:scale-100 peer-placeholder-shown:translate-y-0 peer-focus:scale-75 peer-focus:-translate-y-6"
+                >Segundo Numero</label
+              >
+            </div>
+          </div>
+
+          <button
+            type="submit"
+            class="text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm w-full sm:w-auto px-5 py-2.5 text-center dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800"
+          >
+            Realizar
+          </button>
+        </form>
+      </div>
+    </main>
+
     <script src="./js/main.js"></script>
-</body>
+  </body>
 </html>
