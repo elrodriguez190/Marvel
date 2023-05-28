@@ -1,10 +1,13 @@
+body{
+  background-color: rgb(55, 22, 131);
+}
+
 #dateT {
     background-color: rgb(89, 0, 255);
     width: 100px;
      height: 100px;
-     transition: width 2s;
-    margin-left: 30rem;
-     margin-top: 20rem;
+     transition: width 0.5s;
+
 }
 #dateT:hover {
     width: 300px;
