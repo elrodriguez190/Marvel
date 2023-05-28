@@ -6,13 +6,24 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Capitan America</title>
     <link rel="stylesheet" href="/Capitan America/CSS/style.css">
-    <script src="/Capitan America/JS/main.js"></script>
 </head>
 <body onload="document.getElementById('nombreSuperHeroe').innerHTML='Capitan America'">
+   <div class="GranDiv">
     <h1 id="nombreSuperHeroe"></h1>
-    <button onclick="showdate()" id="datet">Today!</button>
+    <button onclick="showdate()" id="datet" class="Button">Fecha</button>
     <p id="dateShow"></p>
 
-    
+    <div id="buttons">
+        <button id="Button">Bibliografía</button>
+        <button id="Button">Galería</button>
+        <button id="Button">Comics</button>
+        <button id="Button">Películas</button>
+        <button id="Button">Noticias</button>
+    </div>
+    <div id="content"></div>
+   </div>
+
+
+    <script src="/Capitan America/JS/main.js"></script>
 </body>
 </html>
