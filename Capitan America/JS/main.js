@@ -7,3 +7,11 @@ function showdate(){
     document.getElementById("dateShow").innerHTML= Date();
 }
 
+//
+frutas = [];
+console.log(frutas);
+
+var manzana = "manzana";
+
+frutas.push(manzana);
+console.log(frutas);
