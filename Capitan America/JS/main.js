@@ -2,7 +2,7 @@
 //PUBLIC KEY cbd093341f9c47283d72c430537153c1
 //PRIVATE KEY e112f470f3a33e1f797bc92474c7f15b802e9283
 // HASH 1e112f470f3a33e1f797bc92474c7f15b802e9283cbd093341f9c47283d72c430537153c1
-
+//heivis_cuadros
 document.getElementById("nombreSuperHeroe").innerHTML = "Capitan America";
 
 
