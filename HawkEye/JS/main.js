@@ -18,7 +18,7 @@ const marvel ={
         .then(res =>res.json())
         .then((json) => {
             for(const hero of json.data.results){
-                let
+                let urlHero = hero.urls[0].url;
             }
         })
     }
