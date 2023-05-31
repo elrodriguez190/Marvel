@@ -19,6 +19,14 @@ const marvel ={
         .then((json) => {
             for(const hero of json.data.results){
                 let urlHero = hero.urls[0].url;
+                
+                contentHTML == `              
+               <div class="col-md-4">
+                <a href="${urlHero}" target="_blank">
+                    <img src="${hero.thumbnail.path}.${hero.thumbnail.extension}" alt="${hero.name}" class="img-thumbnail">
+                </a>
+                </div>       `;
+                
             }
         })
     }
