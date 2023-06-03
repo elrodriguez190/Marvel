@@ -45,4 +45,5 @@ document.getElementById("nombreHero").innerHTML="HawkEye"
 // $.ajax(settings).done (function (response)){
 //     console.log(response);
 // }
+//
 
