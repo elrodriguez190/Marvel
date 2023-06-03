@@ -12,3 +12,8 @@ body{
 #dateT:hover {
     width: 300px;
   }
+
+img.img-thumbnail {
+    width: 80%;
+    height: 80%;
+  }
