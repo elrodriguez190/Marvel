@@ -6,7 +6,7 @@ body{
     background-color: rgb(89, 0, 255);
      width: 100px;
      height: 100px;
-     transition: width 0.5s;
+     transition: width 0.3s;
 
 }
 #dateT:hover {
