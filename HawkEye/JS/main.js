@@ -4,19 +4,24 @@ var settings={
     "timeout" :0,
 }
 
-$.ajax(settings) .done(function (response) (
-    var information
-)) 
+$.ajax(settings) .done(function (response) {
+    var information =response.data.results[0];
+    console.log(information);
+    console.log(information.thumbnail.path+","+information.thumbnail.extension)
 
+    class SuperHeroe {
+        constructor(name, img){
+            this.name = name;
+            this.img = img;
+        }
+    }
 
+    const miSuperheroe= new SuperHeroe;
+    miSuperheroe.name = information.name;
+    miSuperheroe.img
 
-
-
-
-
-
-
-
+}
+) 
 
 
 
