@@ -1,114 +1,186 @@
-  
-var bodyStyles = {
-  display: 'flex',
-  flexDirection: 'column',
-  alignItems: 'center',
-  justifyContent: '',
-  height: '100vh',
-  margin: '0',
-  backgroundImage: 'url("/IMAG/Spiderman.png")'
-};
+$(document).ready(function() {
+  // Mostrar fecha y hora actual
+  $('#mostrar-fecha').click(function() {
+      var fechaHoraActual = new Date();
+      $('#fecha-hora').text('Fecha y hora actual: ' + fechaHoraActual);
+  });
 
-var buttonStyles = {
-  padding: '10px 20px',
-  backgroundColor: '#ccc',
-  border: 'none',
-  cursor: 'pointer',
-  marginBottom: '10px'
-};
+  // Mostrar imagen del superhéroe
+  $('#mostrar-imagen').click(function() {
+      // Limpiar el contenido de la bibliografía, películas, noticias y el formulario de calificación
+      $('#bibliografia').empty();
+      $('#peliculas').empty();
+      $('#noticias').empty();
+      $('#calificar-form').trigger('reset');
 
-var superheroNameStyles = {
-  fontSize: '24px',
-  fontWeight: 'bold',
-  marginBottom: '20px'
-};
+      var settings = {
+          "url": "https://gateway.marvel.com:443/v1/public/characters/1011054?apikey=9e83888a158797f32666e90f066c1247&hash=cafffc5298375bd191421d8a378d2421&ts=1",
+          "method": "GET",
+          "timeout": 0,
+      };
 
-var buttonContainerStyles = {
-  display: 'flex',
-  justifyContent: 'center',
-  
-};
+      $.ajax(settings).done(function (response) {
+          // Obtener el nombre del superhéroe
+          var nombreSuperheroe = response.data.results[0].name;
 
-var infoButtonStyles = {
-  margin: '0 10px',
-  padding: '10px'
-};
+          // Mostrar el nombre del superhéroe
+          $('#nombre-superheroe').text(nombreSuperheroe);
 
-var infoStyles = {
-  display: 'none',
-  backgroundColor: '#ffffff',
-  padding: '10px',
-  marginTop: '10px'
-};
+          // Obtener la URL de la imagen
+          var imageUrl = response.data.results[0].thumbnail.path + '.' + response.data.results[0].thumbnail.extension;
 
+          // Crear un elemento de imagen y establecer su atributo src
+          var imageElement = $('<img>').attr('src', imageUrl);
 
-var body = document.body;
-Object.assign(body.style, bodyStyles);
+          // Limpiar el contenido previo de la imagen
+          $('#imagen').empty();
 
-var buttons = document.getElementsByClassName('infoButton');
-for (var i = 0; i < buttons.length; i++) {
-  Object.assign(buttons[i].style, buttonStyles);
-}
+          // Agregar la imagen al contenedor
+          $('#imagen').append(imageElement);
+          
+      });
+  });
 
-var superheroName = document.getElementById('superheroName');
-Object.assign(superheroName.style, superheroNameStyles);
+  // Mostrar bibliografía del superhéroe
+  $('#mostrar-bibliografia').click(function() {
+      // Limpiar el contenido de la imagen, películas, noticias y el formulario de calificación
+      $('#imagen').empty();
+      $('#peliculas').empty();
+      $('#noticias').empty();
+      $('#calificar-form').trigger('reset');
 
-var buttonContainer = document.getElementById('buttonContainer');
-Object.assign(buttonContainer.style, buttonContainerStyles);
+      var settings = {
+          "url": "https://gateway.marvel.com:443/v1/public/characters/1011054/comics?apikey=9e83888a158797f32666e90f066c1247&hash=cafffc5298375bd191421d8a378d2421&ts=1",
+          "method": "GET",
+          "timeout": 0,
+      };
 
-var infoButtons = document.getElementsByClassName('info');
-for (var i = 0; i < infoButtons.length; i++) {
-  Object.assign(infoButtons[i].style, infoStyles);
-}
+      $.ajax(settings).done(function (response) {
+          // Obtener la lista de cómics
+          var comics = response.data.results;
 
-function showDate() {
-  var dateButton = document.getElementById("dateButton");
-  dateButton.style.backgroundColor = 'blue';
-  dateButton.style.color = 'white';
-  dateButton.style.display = 'flex';
-  dateButton.style.justifyContent = 'center';
+          // Obtener el elemento contenedor de la bibliografía
+          var bibliografiaElement = $('#bibliografia');
+          bibliografiaElement.empty(); // Limpiar el contenido previo
 
-  var dateText = document.getElementById("dateText");
-  dateText.innerHTML = new Date();
-}
+          // Crear un contenedor para el carrusel
+          var carouselContainer = $('<div>').addClass('carousel-container');
 
-var button1 = document.getElementById("button1");
-var button2 = document.getElementById("button2");
-var button3 = document.getElementById("button3");
-var button4 = document.getElementById("button4");
-var button5 = document.getElementById("button5");
+          // Recorrer la lista de cómics y mostrar el título, descripción e imagen de cada uno
+          for (var i = 0; i < comics.length; i++) {
+              var comic = comics[i];
+              var title = comic.title;
+              var description = comic.description;
+              var imageUrl = comic.thumbnail.path + '.' + comic.thumbnail.extension;
 
-var info1 = document.getElementById("info1");
-var info2 = document.getElementById("info2");
-var info3 = document.getElementById("info3");
-var info4 = document.getElementById("info4");
-var info5 = document.getElementById("info5");
+              // Crear elementos para mostrar el título, descripción e imagen
+              var titleElement = $('<h3>').text(title);
+              var descriptionElement = $('<p>').text(description);
+              var imageElement = $('<img>').attr('src', imageUrl);
 
-function showInfo(infoElement) {
-  var infoElements = document.getElementsByClassName("info");
-  for (var i = 0; i < infoElements.length; i++) {
-      infoElements[i].style.display = "none";
-  }
+              // Crear un contenedor para cada cómic
+              var comicContainer = $('<div>').addClass('comic-container');
+              comicContainer.append(titleElement);
+              comicContainer.append(descriptionElement);
+              comicContainer.append(imageElement);
 
-  infoElement.style.display = "block";
-}
+              // Agregar el cómic al contenedor del carrusel
+              carouselContainer.append(comicContainer);
+          }
 
-button1.onclick = function() {
-  showInfo(info1);
-};
+          // Agregar el carrusel al contenedor de la bibliografía
+          bibliografiaElement.append(carouselContainer);
 
-button2.onclick = function() {
-  showInfo(info2);
-};
+          // Inicializar el carrusel utilizando la biblioteca Slick Carousel
+          carouselContainer.slick({
+              slidesToShow: 1,
+              slidesToScroll: 1,
+              arrows: true,
+              dots: true,
+              autoplay: true,
+              autoplaySpeed: 3000
+          });
+      });
+  });
 
-button3.onclick = function() {
-  showInfo(info3);
-};
+  // Calcular poderes y mostrar promedio
+  $('#calcular-poderes').click(function() {
+      // Limpiar el contenido de la calificación
+      $('#calificacion-container').empty();
 
-button4.onclick = function() {
-  showInfo(info4);
-};
+      // Crear el formulario para ingresar los valores de los poderes
+      var formularioPoderes = $('<div>').addClass('poderes');
+      formularioPoderes.append('<input type="number" id="fuerza" placeholder="Fuerza">');
+      formularioPoderes.append('<input type="number" id="disfraz" placeholder="Disfraz">');
+      formularioPoderes.append('<input type="number" id="traje" placeholder="Traje">');
+      formularioPoderes.append('<input type="number" id="poderes" placeholder="Poderes">');
+      formularioPoderes.append('<button id="calcular-promedio">Calcular</button>');
 
-button5.onclick = function() {
-  showInfo(info5);
-};
+      // Agregar el formulario al contenedor de poderes
+      $('#poderes-container').html(formularioPoderes);
+
+      // Calcular promedio al hacer clic en el botón
+      $('#calcular-promedio').click(function() {
+          var fuerza = parseInt($('#fuerza').val());
+          var disfraz = parseInt($('#disfraz').val());
+          var traje = parseInt($('#traje').val());
+          var poderes = parseInt($('#poderes').val());
+
+          // Validar que los campos estén completos
+          if (isNaN(fuerza) || isNaN(disfraz) || isNaN(traje) || isNaN(poderes)) {
+              alert('Por favor, complete todos los campos con valores numéricos.');
+              return;
+          }
+
+          // Calcular el promedio
+          var promedio = (fuerza + disfraz + traje + poderes) / 4;
+
+          // Mostrar el promedio
+          var calificacionElement = $('<div>').addClass('calificacion');
+          calificacionElement.append('<p>Promedio: ' + promedio.toFixed(2) + '</p>');
+          $('#calificacion-container').html(calificacionElement);
+      });
+  });
+
+  // Calificar personaje y enviar formulario por método POST
+  $('#calificar-personaje').click(function() {
+      // Limpiar el contenido de la calificación
+      $('#calificacion-container').empty();
+
+      // Crear el formulario de calificación
+      var formularioCalificacion = $('<div>').addClass('calificacion');
+      formularioCalificacion.append('<p>Calificación:</p>');
+      formularioCalificacion.append('<input type="text" id="nombre-calificacion" placeholder="Nombre">');
+      formularioCalificacion.append('<textarea id="comentario-calificacion" placeholder="Comentario"></textarea>');
+      formularioCalificacion.append('<button id="enviar-calificacion">Enviar</button>');
+
+      // Agregar el formulario al contenedor de calificación
+      $('#calificacion-container').html(formularioCalificacion);
+
+      // Enviar formulario por método POST al hacer clic en el botón
+      $('#enviar-calificacion').click(function() {
+          var nombre = $('#nombre-calificacion').val();
+          var comentario = $('#comentario-calificacion').val();
+
+          // Validar que los campos estén completos
+          if (nombre.trim() === '' || comentario.trim() === '') {
+              alert('Por favor, complete todos los campos.');
+              return;
+          }
+
+          // Crear el objeto de calificación
+          var calificacion = {
+              nombre: nombre,
+              comentario: comentario
+          };
+
+          // Enviar el objeto de calificación por método POST (aquí debes implementar tu lógica para enviar los datos al servidor)
+          // $.post('url_del_servidor', calificacion, function(response) {
+          //     console.log(response);
+          // });
+
+          // Mostrar mensaje de éxito
+          alert('Calificación enviada correctamente.');
+      });
+  });
+});

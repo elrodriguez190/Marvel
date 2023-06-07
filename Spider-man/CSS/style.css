@@ -1,13 +1,236 @@
-.infoButton{
-    font-size:15px;
-    font-family:Arial;
-    width:140px;
-    height:50px;
-    border-width:1px;
-    color:#ffffff;
-    border-color:#d83526;
-    font-weight:bold;
-    box-shadow:inset 0px 1px 0px 0px #f29c93;
-    text-shadow:inset 0px 1px 0px #b23e35;
-    background:linear-gradient(#fe1a00, #ce0100);
-}
+/* Estilos para el botón Slide Right */
+body {
+    background-color:  #a945c7;
+    flex: 1;
+  }
+  
+  .ov-btn-slide-right {
+    background: #000000;
+    color: #4741d7;
+    border: 2px solid #4741d7;
+    padding: 16px 20px;
+    border-radius: 3px;
+    position: relative;
+    z-index: 1;
+    overflow: hidden;
+    display: inline-block;
+  }
+  
+  .ov-btn-slide-right:hover {
+    color: #000000;
+  }
+  
+  .ov-btn-slide-right::after {
+    content: "";
+    background: #4741d7;
+    position: absolute;
+    z-index: -1;
+    padding: 16px 20px;
+    display: block;
+    top: 0;
+    bottom: 0;
+    left: 100%;
+    right: -100%;
+    transition: all 0.35s;
+  }
+  
+  .ov-btn-slide-right:hover::after {
+    left: 0;
+    right: 0;
+    top: 0;
+    bottom: 0;
+    transition: all 0.35s;
+  }
+  
+  /* Estilos para el contenedor */
+  .container {
+    text-align: center;
+    margin-bottom: 20px;
+  }
+  
+  /* Estilos para el navbar */
+  .navbar {
+    display: flex;
+    justify-content: space-around;
+    margin-bottom: 20px;
+  }
+  
+  /* Estilos para los enlaces del navbar */
+  .navbar a {
+    text-decoration: none;
+    color: #4741d7;
+    padding: 8px 16px;
+    border-radius: 3px;
+  }
+  
+  .navbar a:hover {
+    background: #4741d7;
+    color: #fff;
+  }
+  
+  /* Estilos para los divs de información */
+  .info {
+    display: none;
+    margin-top: 20px;
+  }
+  
+  /* Estilos para el botón Neon */
+  .btn-neon {
+    position: relative;
+    display: inline-block;
+    padding: 15px 30px;
+    color: #000000;
+    letter-spacing: 4px;
+    text-decoration: none;
+    font-size: 24px;
+    overflow: hidden;
+    transition: 0.2s;
+  }
+  
+  .btn-neon:hover {
+    background: #a945c7;
+    box-shadow: 0 0 10px #a945c7, 0 0 40px #a945c7, 0 0 80px #a945c7;
+    transition-delay: 0.05s;
+  }
+  
+  .btn-neon span {
+    position: absolute;
+    display: block;
+  }
+  
+  #span1 {
+    top: 0;
+    left: -100%;
+    width: 100%;
+    height: 2px;
+    background: linear-gradient(90deg, transparent,#a945c7);
+  }
+  
+  .btn-neon:hover #span1 {
+    left: 100%;
+    transition: 1s;
+  }
+  
+  #span3 {
+    bottom: 0;
+    right: -100%;
+    width: 100%;
+    height: 2px;
+    background: linear-gradient(270deg, transparent,#a945c7);
+  }
+  
+  .btn-neon:hover #span3 {
+    right: 100%;
+    transition: 1s;
+    transition-delay: 0.5s;
+  }
+  
+  #span2 {
+    top: -100%;
+    right: 0;
+    width: 2px;
+    height: 100%;
+    background: linear-gradient(180deg,transparent,#a945c7);
+  }
+  
+  .btn-neon:hover #span2 {
+    top: 100%;
+    transition: 1s;
+    transition-delay: 0.25s;
+  }
+  
+  #span4 {
+    bottom: -100%;
+    left: 0;
+    width: 2px;
+    height: 100%;
+    background: linear-gradient(360deg,transparent,#a945c7);
+  }
+  
+  .btn-neon:hover #span4 {
+    bottom: 100%;
+    transition: 1s;
+    transition-delay: 0.75s;
+  }
+  
+  /* Estilos para el contenedor de información */
+  .container-info {
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+  }
+  
+  .int {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+  
+  .int .int-i {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+  }
+  
+  .int-center {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: row;
+  }
+  
+  p {
+    color: white;
+  }
+  
+  .modal {
+    display: flex;
+    justify-content: center;
+  }
+  
+  .carousel-container {
+  
+    width: 100%;
+    max-width: 600px;
+    margin: 0 auto;
+    max-height: 675px;
+    overflow-y: scroll;
+  }
+  
+  .comic-container {
+    padding: 20px;
+    text-align: center;
+  }
+  
+  .comic-container img {
+    max-width: 100%;
+    height: auto;
+    margin-bottom: 10px;
+  }
+  
+  .poderes {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+  }
+  
+  .calificacion {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+  }
+  
+  .calificacion input,
+  .calificacion textarea {
+    width: 300px;
+    padding: 10px;
+    margin-bottom: 10px;
+  }
+  
+  .calificacion button {
+    padding: 10px 20px;
+  }
+  
