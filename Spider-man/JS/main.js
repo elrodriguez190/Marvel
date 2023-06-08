@@ -24,7 +24,7 @@ $(document).ready(function() {
           var nombreSuperheroe = response.data.results[0].name;
 
           // Mostrar el nombre del superhéroe
-          $('#nombre-superheroe').text(nombreSuperheroe);
+          $('#nombre-superheroe').text(nombreSuperheroe).css('color', 'white');
 
           // Obtener la URL de la imagen
           var imageUrl = response.data.results[0].thumbnail.path + '.' + response.data.results[0].thumbnail.extension;
@@ -60,7 +60,7 @@ $(document).ready(function() {
           var comics = response.data.results;
 
           // Obtener el elemento contenedor de la bibliografía
-          var bibliografiaElement = $('#bibliografia');
+          var bibliografiaElement = $('#bibliografia').css('color', 'white');
           bibliografiaElement.empty(); // Limpiar el contenido previo
 
           // Crear un contenedor para el carrusel
