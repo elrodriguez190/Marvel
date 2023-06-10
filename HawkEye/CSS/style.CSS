@@ -1,3 +1,7 @@
+#container{
+  display:flex;
+}
+
 body{
   background-color: rgb(132, 110, 182);
 }
@@ -16,4 +20,38 @@ body{
 img.img-thumbnail {
     width: 80%;
     height: 80%;
+  }
+
+  /* MENU marco teorico tras objetivos*/
+
+div.scrollmenu {
+  background-color: #333;
+  overflow: auto;
+  white-space: nowrap;
+  align-items: center;
+}
+
+div.scrollmenu a {
+  display: inline-block;
+  color: white;
+  text-align: center;
+  padding: 14px;
+  text-decoration: none;
+}
+
+div.scrollmenu a:hover {
+  background-color: #777;
+}
+
+  /* MENU BIBLIOGRAFIA*/
+
+#bibliogra {
+  margin: 10pt 0 30pt 0;
+  border-top: .25pt solid #666;
+}
+
+#bibliogra:hover {
+  margin: 10pt 0 30pt 0;
+  border-top: .25pt solid #666;
+  content: "BIBLIOGRAIA DE HAWKEYE";
   }
