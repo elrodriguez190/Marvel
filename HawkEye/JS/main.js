@@ -18,12 +18,21 @@ $.ajax(settings) .done(function (response) {
 
     const miSuperheroe= new SuperHeroe;
     miSuperheroe.name = information.name;
-    miSuperheroe.img
+    miSuperheroe.img = information.thumbnail.path+"."+information.thumbnail.extension;
+    console.log(miSuperheroe.name);
 
-}
-) 
+    var nombres = document.getElementsByClassName("nombreSuperHeroe");
+    ImageBitmapRenderingContext.src = miSuperheroe.name;
 
 
+    var imagen = document.getElementById("imgSuperHeroe");
+    imagen.src = miSuperheroe.img;
+    console.log(imagen);
+
+}) ;
+
+var character = "prueba";
+console.log(imagen);
 
 
 function Showdate(){
