@@ -1,5 +1,3 @@
-// PRIVATE KEY = d81e24bcc2290b69d57148050ff4931dd0a25a34
-// PUBLIC KEY = 70031dc06acb6dffbae109e663e5a71e
 
 const ts = "1";
 const apykey = "70031dc06acb6dffbae109e663e5a71e";
@@ -101,7 +99,8 @@ class SuperHero {
 
   contactForm() {}
 
-  calculator() {}
+  calculator() {
+  }
 }
 
 async function ShowDate() {
@@ -123,7 +122,6 @@ async function ShowDate() {
     superHeroInfo.events.items
   );
 
-  console.log(superHero);
   superHero.principalPage();
   superHero.carrouselGallery();
   superHero.infoBiography();
@@ -220,3 +218,40 @@ const showContent = (nameTab) => {
       break;
   }
 };
+
+window.addEventListener('load', () => {
+  let form = document.querySelector('#form');
+  form.addEventListener('submit', (e) => {
+    e.preventDefault();
+    let result;
+    const typeOperation = document.querySelector("#underline_select").value
+    const firstNum = document.querySelector("#firstNum").value
+    const secondNum = document.querySelector("#secondNum").value
+    console.log(typeOperation);
+    console.log(form);
+    console.log(form);
+  
+    switch (typeOperation) {
+      case 'MUL':
+        result =  firstNum * secondNum;
+        document.querySelector("#result-operation").innerHTML = `El resultado es: ${result}`
+        break;
+      case 'DIV':
+        result =  firstNum / secondNum;
+        document.querySelector("#result-operation").innerHTML = `El resultado es: ${result}`
+        break;
+      case 'RES':
+        result =  firstNum - secondNum;
+        document.querySelector("#result-operation").innerHTML = `El resultado es: ${result}`
+        break;
+      case 'SUM':
+        result =  firstNum + secondNum;
+        document.querySelector("#result-operation").innerHTML = `El resultado es: ${result}`
+        break;
+    
+      default:
+        document.querySelector("#result-operation").innerHTML = `Debes escoger una operador.`
+        break;
+    }
+  })
+})
