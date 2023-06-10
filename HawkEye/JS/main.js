@@ -1,13 +1,21 @@
 var settings={
-    "url": "https://gateway.marvel.com:443/v1/public/characters?apikey=4b525502df661367697f4ddc61942a24&hash=1f182aa8b805a294b1d4537e8292b15c&ts=1&name=hawkeye",
+    "url": "https://gateway.marvel.com:443/v1/public/characters/1009228?apikey=4b525502df661367697f4ddc61942a24&hash=1f182aa8b805a294b1d4537e8292b15c&ts=1&limit=100",
     "method": "GET",
     "timeout" :0,
 }
 
 $.ajax(settings) .done(function (response) {
+    console.log(response);
     var information =response.data.results[0];
     console.log(information);
     console.log(information.thumbnail.path+","+information.thumbnail.extension)
+
+    //Guardando datos 
+    //llave publica 4b525502df661367697f4ddc61942a24
+    //llave privada aac8b70446ec89d9989e3ee9f78b6b3b489f81ba
+
+    // https://gateway.marvel.com:443/v1/public/characters/1009228?apikey=4b525502df661367697f4ddc61942a24&hash=1f182aa8b805a294b1d4537e8292b15c&ts=1&limit=100
+//https://gateway.marvel.com:443/v1/public/characters/1009228?apikey=4b525502df661367697f4ddc61942a24&hash=1f182aa8b805a294b1d4537e8292b15c&ts=1&name=hawkeye&id=1009338
 
     class SuperHeroe {
         constructor(name, img){
