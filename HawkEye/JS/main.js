@@ -29,7 +29,7 @@ $.ajax(settings) .done(function (response) {
     miSuperheroe.img = information.thumbnail.path+"."+information.thumbnail.extension;
     console.log(miSuperheroe.name);
 
-    var nombres = document.getElementsByClassName("nombreSuperHeroe");
+    var nombres = document.getElementsById('nombreSuperHeroe');
     ImageBitmapRenderingContext.src = miSuperheroe.name;
 
 
@@ -42,7 +42,7 @@ $.ajax(settings) .done(function (response) {
 var character = "prueba";
 console.log(imagen);
 
-
+//boton fecha
 function Showdate(){
     document.getElementById("dateT")
     document.getElementById("dateShow").innerHTML=Date();
