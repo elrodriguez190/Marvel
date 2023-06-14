@@ -1,5 +1,5 @@
 var settings={
-    "url": "https://gateway.marvel.com:443/v1/public/characters/1009228?apikey=4b525502df661367697f4ddc61942a24&hash=1f182aa8b805a294b1d4537e8292b15c&ts=1&limit=100",
+    "url": "https://gateway.marvel.com:443/v1/public/characters/1009338?apikey=4b525502df661367697f4ddc61942a24&hash=1f182aa8b805a294b1d4537e8292b15c&ts=1&limit=100",
     "method": "GET",
     "timeout" :0,
 }
@@ -49,7 +49,6 @@ function Showdate(){
 }
 
 document.getElementById("nombreHero").innerHTML="HawkEye"
-
 
 
 //VIEJO VIEJO VIEJO
