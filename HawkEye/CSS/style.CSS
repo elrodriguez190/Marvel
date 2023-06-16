@@ -4,43 +4,34 @@
 
 body{
   background-color: rgb(132, 110, 182);
+  align-items: center;
 }
 
+img{
+  border-radius: 50%;
+  max-width: 20%;
+  max-height: 20%;
+}
+
+    /* fecha */
 #dateT {
     background-color: rgb(89, 0, 255);
      width: 100px;
      height: 100px;
      transition: width 0.3s;
-
+    margin-bottom: 5px; ;
 }
 #dateT:hover {
     width: 300px;
   }
 
 img.img-thumbnail {
-    width: 80%;
-    height: 80%;
+    width: 40%;
+    height: 40%;
   }
 
-  /* MENU marco teorico tras objetivos*/
-
-div.scrollmenu {
-  background-color: #333;
-  overflow: auto;
-  white-space: nowrap;
-  align-items: center;
-}
-
-div.scrollmenu a {
-  display: inline-block;
-  color: white;
-  text-align: center;
-  padding: 14px;
-  text-decoration: none;
-}
-
-div.scrollmenu a:hover {
-  background-color: #777;
+h1{
+  color: aliceblue;
 }
 
   /* MENU BIBLIOGRAFIA*/
@@ -48,10 +39,7 @@ div.scrollmenu a:hover {
 #bibliogra {
   margin: 10pt 0 30pt 0;
   border-top: .25pt solid #666;
+  content: "BIBLIOGRAIA DE HAWKEYE AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA";
 }
 
-#bibliogra:hover {
-  margin: 10pt 0 30pt 0;
-  border-top: .25pt solid #666;
-  content: "BIBLIOGRAIA DE HAWKEYE";
-  }
+
