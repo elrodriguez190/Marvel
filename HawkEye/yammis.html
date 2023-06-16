@@ -20,24 +20,21 @@
 </head>
 
 <body>
-    <!-- NOMBRE DEL HEROE -->
-    <h1 id="nombreHero" class="navbar navbar-dark bg-dark"></h1>
-    
-
-<!-- Nota propia yo: fechaa cademico financiero y bienestar (ma+riana, laura me comentó
-semilleros) -->
-
-<body onload="document.getElementById('nombreHero').innerHTML='Hawkeye'">
-    
-    <div style="display: flex; justify-content:flex-end;">
+    <!--Botón fecha -->
+    <div class="principales">
         <div style="display: block;">
             <button class= "ubica" id="dateT" onclick="Showdate()">Today</button>
-            <p id="dateShow"></p>
+            <p id="dateShow" style="align-self: flex-end;"></p>
         </div>
     </div>
+
+    <!-- NOMBRE DEL HEROE -->
+    <h1 id="nombreHero" class="navbar navbar-dark bg-dark" style="padding-left: 10px;"></h1>
     
-
-
+<!-- Nota propia yo: fechaa cademico financiero y bienestar (ma+riana, laura me comentó
+semilleros) -->
+    <!-- <body onload="document.getElementById('nombreHero').innerHTML='Hawkeye'"> -->
+   
     <div class="container">
         <div class="row" id="marvel-row">
         </div>
@@ -57,29 +54,56 @@ semilleros) -->
         <button class="nav-item nav-link active" href="#">Home <span class="sr-only">(current)</span></button>
 
         <button class="nav-item nav-link"  onclick="toggle('q1')"> Biografia</button>
-        <button class="nav-item nav-link"  onclick="imagen()">Galería</button>
-        <button class="nav-item nav-link"  onclick="toggle('q3')">Comics</button>
+        <button class="nav-item nav-link"  onclick="toggle('q2')">Galería</button>
+        <button class="nav-item nav-link"  onclick="getComics()">Comics</button>
         <button class="nav-item nav-link" id="traerPelis" onclick="getMovies()">Peliculas</button>
 
     </div>
   </nav>
 
-  <img src="" id="imgSuperHeroe" alt="" class="img">
+
+  
 
 
-  <!-- Biografia superheroe -->
-    <div id="q1" style="display:none;" class="textos">
-        Clint Barton nació en California. 
-        A una edad joven perdió a sus padres en un accidente automovilístico. 
-        Después de seis años en un orfanato, Clint y su hermano Barney se escaparon para unirse al Carnaval Viajero de Maravillas Carson.
-        Clint pronto llamó la atención del Espadachín, que tomó al niño como su asistente. Junto con la ayuda de Trick Shot, el espadachín entrenador, Clint decide convertirse en un maestro arquero.
-        Clint encontró, más tarde, al espadachín malversando del dinero de la feria. 
-        Antes de que pudiera entregar a su mentor a las autoridades, Clint fue golpeado y tomado por muerto, permitiendo que el espadachín escapara de la ciudad.
-        La relación de Clint con su hermano Barney y Trick Shot, pronto se deterioró.6​
-        Clint adaptó sus habilidades de tiro con arco para convertirse en una atracción de carnaval estrella, un maestro arquero llamado "Ojo de Halcón", también conocida como “El tirador más grande del mundo”. Pasó algún tiempo como miembro del Circo de Ringmaster,7​ antes de unirse al Circo de Coney Island. Fue testigo de Iron Man en acción y se inspiró para convertirse en un héroe disfrazado. Sin embargo, después de un malentendido en su primera aparición, Ojo de Halcón fue acusado de robo y catalogado de criminal. En la huida, el ingenuo Ojo de Halcón se topó con la Viuda Negra, una espía de la Unión Soviética, de la que se enamoró. Siguiendo ciegamente a la Viuda Negra, Ojo de Halcón la ayudó en su intento de robar la tecnología desarrollada por Tony Stark. En una de sus batallas con Iron Man, la Viuda Negra resultó gravemente herida. Ojo de Halcón la rescató y huyó de la batalla para salvar su vida. Pero antes de que Ojo de Halcón pudiera llevarla a un hospital, la Viuda Negra desapareció. 
-        Ojo de Halcón decidió ser un "tirador recto" a partir de entonces.
+  <div>
+     <img src="" id="imgSuperHeroe" alt="" class="img">
+
+
+     <!-- Biografia superheroe -->
+      <div id="q1" style="display:none;" class="textos">
+          <h3>Clint Barton nació en California.</h3> 
+            A una edad joven perdió a sus padres en un accidente automovilístico. 
+              Después de seis años en un orfanato, Clint y su hermano Barney se escaparon para unirse al Carnaval Viajero de Maravillas Carson.
+              Clint pronto llamó la atención del Espadachín, que tomó al niño como su asistente. Junto con la ayuda de Trick Shot, el espadachín entrenador, Clint decide convertirse en un maestro arquero.
+              Clint encontró, más tarde, al espadachín malversando del dinero de la feria. 
+              Antes de que pudiera entregar a su mentor a las autoridades, Clint fue golpeado y tomado por muerto, permitiendo que el espadachín escapara de la ciudad.
+              La relación de Clint con su hermano Barney y Trick Shot, pronto se deterioró.6​
+              Clint adaptó sus habilidades de tiro con arco para convertirse en una atracción de carnaval estrella, un maestro arquero llamado "Ojo de Halcón", también conocida como “El tirador más grande del mundo”. Pasó algún tiempo como miembro del Circo de Ringmaster,7​ antes de unirse al Circo de Coney Island. Fue testigo de Iron Man en acción y se inspiró para convertirse en un héroe disfrazado. Sin embargo, después de un malentendido en su primera aparición, Ojo de Halcón fue acusado de robo y catalogado de criminal. En la huida, el ingenuo Ojo de Halcón se topó con la Viuda Negra, una espía de la Unión Soviética, de la que se enamoró. Siguiendo ciegamente a la Viuda Negra, Ojo de Halcón la ayudó en su intento de robar la tecnología desarrollada por Tony Stark. En una de sus batallas con Iron Man, la Viuda Negra resultó gravemente herida. Ojo de Halcón la rescató y huyó de la batalla para salvar su vida. Pero antes de que Ojo de Halcón pudiera llevarla a un hospital, la Viuda Negra desapareció. 
+              Ojo de Halcón decidió ser un "tirador recto" a partir de entonces.
+      </div>
+
+
+     <!-- Carusel galeria superheroe -->
+    <div id="q2" style="display:none;" class="textos">
+        <div class="card-2-projects">
+            <div class="card-2-projectsCarousel">
+                <button class="card-2-projectBtn" onclick="someFunction(-1)">
+                </button>
+                <div class="card-2-projectsDivList">
+                    <ul class="card-2-projectsList" id="card-2-projectsList">
+    
+                    </ul>
+                </div>
+                <button class="card-2-projectBtn" onclick="someFunction(0)">
+                </button>
+            </div>
+        </div>
     </div>
+    
 
+
+  </div>
+  
 
 
 

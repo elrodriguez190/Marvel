@@ -2,6 +2,12 @@
   display:flex;
 }
 
+.principales{
+  display: flex; 
+  justify-content:flex-end;
+  text-align: -webkit-right; 
+}
+
 body{
   background-color: rgb(132, 110, 182);
   align-items: center;
@@ -39,3 +45,92 @@ h1{
   max-width: 60%;
 }
 
+
+.pelis{
+ width: 50px;
+ height: 50px;
+}
+
+
+/* //carusel/ */
+
+.card-2-projects {
+  width: 100%;
+}
+
+.card-2-projectsTitle {
+  font-size: 16px;
+  font-weight: bold;
+}
+
+.card-2-projectsCarousel {
+  margin-top: 20px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.card-2-projectBtn {
+  width: 10px;
+  height: 40px;
+  background-color: #C4C8CC;
+  border: none;
+  cursor: pointer;
+  clip-path: polygon(0% 50%, 100% 0%, 100% 100%);
+}
+
+.card-2-projectBtn:last-child {
+  transform: rotate(180deg);
+}
+.card-2-projectBtn:hover {
+  background-color: #5A5789;
+}
+
+.card-2-projectsDivList {
+  flex-grow: 1;
+  overflow: hidden;
+  max-width: 400px;
+}
+
+.card-2-projectsList {
+  position: relative;
+  left: 0;
+  display: flex;
+  transition: left .25s ease;
+
+ 
+}
+
+.card-2-listContent {
+  height: 0;
+  width: calc(100% - 20px);
+  margin: 0 10px 9px;
+  padding-bottom: 50%;
+  background-color: white;
+  display: block;
+  position: relative;
+  box-shadow: 0px 3px 6px #2E2D2C66;
+  cursor: pointer;
+  flex-shrink: 0;
+}
+
+
+
+@media only screen and (min-width: 768px) {
+  .card-2-listContent {
+      width: calc(50% - 20px);
+      padding-bottom: 30%;
+  }
+}
+
+.card-2-projectImages {
+  width: 100%;
+  height: 100%;
+  border: 2px solid white;
+  position: absolute;
+  opacity: 1;
+  object-fit: cover;
+}
+.card-2-projectImages:hover {
+opacity: 0.5;
+}

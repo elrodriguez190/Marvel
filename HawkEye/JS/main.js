@@ -31,33 +31,76 @@ $.ajax(settings) .done(function (response) {
     imagen.src = miSuperheroe.img;
     console.log(imagen);
 
+
+    
 }) ;
 
 var character = "prueba";
 console.log(character);
 
-//boton fecha
-function Showdate(){
-    document.getElementById("dateT")
-    document.getElementById("dateShow").innerHTML=Date();
-}
 
-document.getElementById("nombreHero").innerHTML="HawkEye"
+//boton fecha
+    function Showdate(){
+        document.getElementById("dateT")
+        document.getElementById("dateShow").innerHTML=Date();
+    }
+
+    document.getElementById("nombreHero").innerHTML="HawkEye"
 
 
 //biografia
-function toggle(obj) {
-    var obj=document.getElementById(obj);
-    if (obj.style.display == "block") obj.style.display = "none";
-    else obj.style.display = "block";
-    console.log();
-}
+    function toggle(obj) {
+        var obj=document.getElementById(obj);
+        if (obj.style.display == "block") obj.style.display = "none";
+        else obj.style.display = "block";
+        console.log();
+    }
+
 
 //peliculas
-function getMovies(){
-    var pelis = miSuperheroe.name;
-    console.log(pelis);
-}
+    function getMovies(){
+        URL = "http://gateway.marvel.com/v1/public/characters/1009338/series";
+        
+        const series= new URL;
+        series.name = information.name;
+        var pelis = document.getElementById(series);
+        pelis.src = series;
+        console.log(pelis);
+
+    //     var pelis = items.name;
+    //     console.log(pelis);
+        }
+
+//comics
+    function getComics(){
+        const items = "http://gateway.marvel.com/v1/public/characters/1009338/comics";      
+        var comics = items.name;
+        console.log(comics);
+    }
+
+
+
+
+
+//galeria carrousel
+
+const linkApi = "https://gateway.marvel.com:443/v1/public/characters/1009338?apikey=4b525502df661367697f4ddc61942a24&hash=1f182aa8b805a294b1d4537e8292b15c&ts=1&limit=100"
+
+const container = document.querySelector("#card-2-projectsList");
+let contentHTML = '';
+
+fetch(linkApi)
+  .then(response => response.json())
+  .then(data => {
+
+    for (const results of data) {
+     contentHTML += `
+        <li class="card-2-listContent">
+        <img class="card-2-projectImages" src="${results.download_url}">
+        </li>`
+    }
+    container.innerHTML = contentHTML;
+  })
 
 
 
