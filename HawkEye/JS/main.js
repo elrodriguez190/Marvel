@@ -4,14 +4,6 @@ var settings={
     "timeout" :0,
 };
 
-    //Guardando datos 
-    //llave publica 4b525502df661367697f4ddc61942a24
-    //llave privada aac8b70446ec89d9989e3ee9f78b6b3b489f81ba
-
-    // https://gateway.marvel.com:443/v1/public/characters/1009228?apikey=4b525502df661367697f4ddc61942a24&hash=1f182aa8b805a294b1d4537e8292b15c&ts=1&limit=100  --anterior
-    //https://gateway.marvel.com:443/v1/public/characters/1009228?apikey=4b525502df661367697f4ddc61942a24&hash=1f182aa8b805a294b1d4537e8292b15c&ts=1&name=hawkeye&id=1009338 --otra anterior
-
-
 $.ajax(settings) .done(function (response) {
     console.log(response);
     var information =response.data.results[0];
@@ -58,14 +50,21 @@ function toggle(obj) {
     var obj=document.getElementById(obj);
     if (obj.style.display == "block") obj.style.display = "none";
     else obj.style.display = "block";
+    console.log();
 }
 
 //peliculas
 function getMovies(){
-    var hawkeye = new SuperHeroe();
     var pelis = miSuperheroe.name;
     console.log(pelis);
 }
 
 
 
+
+    //Guardando datos 
+    //llave publica 4b525502df661367697f4ddc61942a24
+    //llave privada aac8b70446ec89d9989e3ee9f78b6b3b489f81ba
+
+    // https://gateway.marvel.com:443/v1/public/characters/1009228?apikey=4b525502df661367697f4ddc61942a24&hash=1f182aa8b805a294b1d4537e8292b15c&ts=1&limit=100  --anterior
+    //https://gateway.marvel.com:443/v1/public/characters/1009228?apikey=4b525502df661367697f4ddc61942a24&hash=1f182aa8b805a294b1d4537e8292b15c&ts=1&name=hawkeye&id=1009338 --otra anterior

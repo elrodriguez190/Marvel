@@ -15,14 +15,15 @@ img{
 
     /* fecha */
 #dateT {
+  align-self: flex-end;
     background-color: rgb(89, 0, 255);
      width: 100px;
-     height: 100px;
+     height: 80px;
      transition: width 0.3s;
-    margin-bottom: 5px; ;
+    padding-bottom: 20px; ;
 }
 #dateT:hover {
-    width: 300px;
+    width: 150px;
   }
 
 img.img-thumbnail {
@@ -34,12 +35,7 @@ h1{
   color: aliceblue;
 }
 
-  /* MENU BIBLIOGRAFIA*/
-
-#bibliogra {
-  margin: 10pt 0 30pt 0;
-  border-top: .25pt solid #666;
-  content: "BIBLIOGRAIA DE HAWKEYE AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA";
+.textos{
+  max-width: 60%;
 }
-
 
