@@ -30,9 +30,6 @@ $.ajax(settings) .done(function (response) {
     var imagen = document.getElementById("imgSuperHeroe");
     imagen.src = miSuperheroe.img;
     console.log(imagen);
-
-
-    
 }) ;
 
 var character = "prueba";
@@ -44,7 +41,6 @@ console.log(character);
         document.getElementById("dateT")
         document.getElementById("dateShow").innerHTML=Date();
     }
-
     document.getElementById("nombreHero").innerHTML="HawkEye"
 
 
@@ -58,19 +54,60 @@ console.log(character);
 
 
 //peliculas
-    function getMovies(){
-        URL = "http://gateway.marvel.com/v1/public/characters/1009338/series";
-        
-        const series= new URL;
-        series.name = information.name;
-        var pelis = document.getElementById(series);
-        pelis.src = series;
+        // function getMovies(){
+        //     const information = "http://gateway.marvel.com/v1/public/characters/1009338/series?apikey=4b525502df661367697f4ddc61942a24&hash=1f182aa8b805a294b1d4537e8292b15c&ts=1&limit=100";      
+        //     const series= new information;
+        //     var pelis = document.getElementById(series);
+        //     series.name = information.name;
+        //     console.log(pelis);
+        // }
+//peliculas
+var settings={
+    "url": "http://gateway.marvel.com/v1/public/characters/1009338/series?apikey=4b525502df661367697f4ddc61942a24&hash=1f182aa8b805a294b1d4537e8292b15c&ts=1&limit=100",
+    "method": "GET",
+    "timeout" :0,
+};
+
+$.ajax(settings) .done(function getMovies (response) {
+        console.log(response);
+        var information =response.data.results[0];
+        console.log(information);
+        console.log(information.series.path+"."+information.series.extension)
+    
+        class Serie {
+            constructor(name, img){
+                this.name = name;
+                this.serie = serie;
+            }
+        }
+    
+        const miSuperheroe= new Serie;
+        misPelis.name = information.name;
+        misPelis.serie = information.thumbnail.path+"."+information.series.extension;
+        console.log(misPelis.name);
+    
+        var nombres = document.getElementsByClassName('Serie');
+        nombres.innerHTML = misPelis.name;
+    
+        var pelis = document.getElementById("serieSuperHeroe");
+        pelis.src = misPelis.serie;
         console.log(pelis);
+}) ;
+
+
+
+
+// $.ajax(settings) .done(function getMovies() {
+//     console.log(response);
+
+//         const series= new information;
+//         var pelis = document.getElementById(series);
+//         series.name = information.name;
+//         console.log(pelis);
+//     })
 
     //     var pelis = items.name;
     //     console.log(pelis);
-        }
-
 //comics
     function getComics(){
         const items = "http://gateway.marvel.com/v1/public/characters/1009338/comics";      
@@ -83,13 +120,10 @@ console.log(character);
 
 
 //galeria carrousel
-
-const linkApi = "https://gateway.marvel.com:443/v1/public/characters/1009338?apikey=4b525502df661367697f4ddc61942a24&hash=1f182aa8b805a294b1d4537e8292b15c&ts=1&limit=100"
-
 const container = document.querySelector("#card-2-projectsList");
 let contentHTML = '';
 
-fetch(linkApi)
+fetch(settings)
   .then(response => response.json())
   .then(data => {
 
