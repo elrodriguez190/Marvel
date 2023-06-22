@@ -63,39 +63,43 @@ console.log(character);
         // }
 
 //peliculas informatios = pelis
-var things={
-    "url": "http://gateway.marvel.com/v1/public/characters/1009338/series?apikey=4b525502df661367697f4ddc61942a24&hash=1f182aa8b805a294b1d4537e8292b15c&ts=1&limit=100",
-    "method": "GET",
-    "timeout" :0,
-};
 
-$.ajax(things) .done(function getMovies (response) {
-    console.log(response);
-    var pelis =response.data.results[0];
-    console.log(pelis);
-    console.log(pelis.items.path+"."+pelis.items.extension)
-
- 
-    class SuperHeroe {
-        constructor(name, img){
-            this.name = name;
-            this.img = img;
+function getMovies(){
+    var things={
+        "url": "http://gateway.marvel.com/v1/public/characters/1009338/series?apikey=4b525502df661367697f4ddc61942a24&hash=1f182aa8b805a294b1d4537e8292b15c&ts=1&limit=100",
+        "method": "GET",
+        "timeout" :0,
+    };
+    
+    $.ajax(things) .done(function (response) {
+        console.log(response);
+        var pelis =response.data.results[0];
+        console.log(pelis);
+        console.log(pelis.items.path+"."+pelis.items.extension)
+    
+     
+        class SuperHeroe {
+            constructor(name, img){
+                this.name = name;
+                this.img = img;
+            }
         }
-    }
-
-    const miSuperheroe= new SuperHeroe;
-    miSuperheroe.name = pelis.name;
-    miSuperheroe.img = pelis.items.path+"."+pelis.items.extension;
-    console.log(miSuperheroe.name);
-
-    var nombres = document.getElementsByClassName('nombreSuperHeroe');
-    nombres.innerHTML = miSuperheroe.name;
-    // ImageBitmapRenderingContext.src = miSuperheroe.name;
-
-    var imagen = document.getElementById("imgSuperHeroe");
-    imagen.src = miSuperheroe.img;
-    console.log();
-}) ;
+    
+        const miSuperheroe= new SuperHeroe;
+        miSuperheroe.name = pelis.name;
+        miSuperheroe.img = pelis.items.path+"."+pelis.items.extension;
+        console.log(pelis.items);
+    
+        var nombres = document.getElementsByClassName('nombreSuperHeroe');
+        nombres.innerHTML = miSuperheroe.name;
+        // ImageBitmapRenderingContext.src = miSuperheroe.name;
+    
+        var imagen = document.getElementById("imgSuperHeroe");
+        imagen.src = miSuperheroe.img;
+        console.log();
+    }) ;
+    
+}
 
 
 
@@ -113,9 +117,41 @@ $.ajax(things) .done(function getMovies (response) {
     //     console.log(pelis);
 //comics
     function getComics(){
-        const items = "http://gateway.marvel.com/v1/public/characters/1009338/comics";      
-        var comics = items.name;
-        console.log(comics);
+        var infor = {
+            "url": "http://gateway.marvel.com/v1/public/characters/1009338/series?apikey=4b525502df661367697f4ddc61942a24&hash=1f182aa8b805a294b1d4537e8292b15c&ts=1&limit=100",
+            "method": "GET",
+            "timeout": 0,
+        };
+
+        $.ajax(infor).done(function (response) {
+            console.log(response);
+            var pelis = response.data.results[0];
+            
+            console.log(pelis);
+            console.log(items.resourceURI.path + "." + items.resourceURI.extension)
+
+
+            class SuperHeroe {
+                constructor(name, img) {
+                    this.name = name;
+                    this.img = img;
+                }
+            }
+
+            const miSuperheroe = new SuperHeroe;
+            miSuperheroe.name = items.name;
+            miSuperheroe.img = items.resourceURI.path + "." + items.resourceURI.extension;
+            console.log(pelis.items);
+
+            var nombres = document.getElementsByClassName('nombreSuperHeroe');
+            nombres.innerHTML = miSuperheroe.name;
+            // ImageBitmapRenderingContext.src = miSuperheroe.name;
+
+            var imagen = document.getElementById("imgSuperHeroe");
+            imagen.src = miSuperheroe.img;
+            console.log();
+        });
+            
     }
 
 
