@@ -7,67 +7,84 @@
     <script src="https://gateway.marvel.com:443/v1/public/characters/1009338?apikey=4b525502df661367697f4ddc61942a24&hash=1f182aa8b805a294b1d4537e8292b15c&ts=1&limit=100"></script>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-9ndCyUaIbzAi2FUVXJi0CjmCapSmO7SnpJef0486qhLnuZ2cdeRhO02iuK6FUUVM" crossorigin="anonymous">
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.4/jquery.min.js"></script>
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@100&display=swap" rel="stylesheet">
+    
+    
     <link rel="stylesheet" href="./CSS/style.css">
     <link rel="stylesheet" href="./JS/main.js">
     
     <title>Hawkeye</title>
 
 </head>
-
 <body>
     <!--Botón fecha -->
     <div class="principales">
         <div style="display: block;">
-            <button class= "principales" id="dateT" onclick="Showdate()">Fecha</button>
+            <button class="principales" id="dateT" onclick="Showdate()">Fecha</button>
             <p id="dateShow" style="align-self: flex-end;"></p>
         </div>
     </div>
 
     <!-- NOMBRE DEL HEROE -->
     <h1 id="nombreHero" class="navbar navbar-dark bg-dark" style="padding-left: 10px;"></h1>
-    
+
     <div class="container">
         <div class="row" id="marvel-row">
         </div>
     </div>
 
 
-<!--menu menu horizontal dirigir-->
-<nav class="navbar navbar-expand-lg navbar navbar-dark bg-dark">
-    <a class="navbar-brand">Menú Super Heroe</a>
+    <!--menu menu horizontal dirigir-->
+    <nav class="navbar navbar-expand-lg navbar navbar-dark bg-dark">
+        <a class="navbar-brand">Menú Super Heroe</a>
 
-    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
-      <span class="navbar-toggler-icon"></span>
-    </button>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavAltMarkup"
+            aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
 
-    <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
-      <div class="navbar-nav">
-        <button class="nav-item nav-link active" href="#">Home <span class="sr-only">(current)</span></button>
+        <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
+            <div class="navbar-nav">
+                <button class="nav-item nav-link active" href="#">Home <span class="sr-only">(current)</span></button>
 
-        <button class="nav-item nav-link"  onclick="toggle('q1')"> Biografia</button>
-        <button class="nav-item nav-link"  onclick="toggle('q2')">Galería</button>
-        <button class="nav-item nav-link"  onclick="getComics()">Comics</button>
-        <button class="nav-item nav-link"  onclick="getMovies()">Peliculas</button>
+                <button class="nav-item nav-link" onclick="toggle('q1')"> Biografia</button>
+                <button class="nav-item nav-link" onclick="toggle('q2')">Galería</button>
+                <button class="nav-item nav-link" onclick="getComics()">Comics</button>
+                <button class="nav-item nav-link" onclick="getMovies()">Peliculas</button>
 
-    </div>
-</nav>
+            </div>
+    </nav>
 
 
-  <!-- Centrado contenido luchino -->
-  <div style="display: flex;">
+    <!-- Centrado contenido luchino -->
+    <div style="display: flex;">
         <img src="" id="imgSuperHeroe" alt="" class="img">
 
 
         <!-- Biografia superheroe -->
         <div id="q1" style="display:none;" class="textos">
-            <h3>Clint Barton nació en California.</h3> 
-                A una edad joven perdió a sus padres en un accidente automovilístico. 
-                Después de seis años en un orfanato, Clint y su hermano Barney se escaparon para unirse al Carnaval Viajero de Maravillas Carson.
-                Clint pronto llamó la atención del Espadachín, que tomó al niño como su asistente. Junto con la ayuda de Trick Shot, el espadachín entrenador, Clint decide convertirse en un maestro arquero.
-                Clint encontró, más tarde, al espadachín malversando del dinero de la feria.Antes de que pudiera entregar a su mentor a las autoridades, Clint fue golpeado y tomado por muerto, permitiendo que el espadachín escapara de la ciudad.
-                La relación de Clint con su hermano Barney y Trick Shot, pronto se deterioró.
-                Clint adaptó sus habilidades de tiro con arco para convertirse en una atracción de carnaval estrella, un maestro arquero llamado "Ojo de Halcón", también conocida como “El tirador más grande del mundo”. Pasó algún tiempo como miembro del Circo de Ringmaster,7​ antes de unirse al Circo de Coney Island. Fue testigo de Iron Man en acción y se inspiró para convertirse en un héroe disfrazado. Sin embargo, después de un malentendido en su primera aparición, Ojo de Halcón fue acusado de robo y catalogado de criminal. En la huida, el ingenuo Ojo de Halcón se topó con la Viuda Negra, una espía de la Unión Soviética, de la que se enamoró. Siguiendo ciegamente a la Viuda Negra, Ojo de Halcón la ayudó en su intento de robar la tecnología desarrollada por Tony Stark. En una de sus batallas con Iron Man, la Viuda Negra resultó gravemente herida. Ojo de Halcón la rescató y huyó de la batalla para salvar su vida. Pero antes de que Ojo de Halcón pudiera llevarla a un hospital, la Viuda Negra desapareció. 
-                Ojo de Halcón decidió ser un "tirador recto" a partir de entonces.
+            <h3>Clint Barton nació en California.</h3>
+            A una edad joven perdió a sus padres en un accidente automovilístico.
+            Después de seis años en un orfanato, Clint y su hermano Barney se escaparon para unirse al Carnaval Viajero
+            de Maravillas Carson.
+            Clint pronto llamó la atención del Espadachín, que tomó al niño como su asistente. Junto con la ayuda de
+            Trick Shot, el espadachín entrenador, Clint decide convertirse en un maestro arquero.
+            Clint encontró, más tarde, al espadachín malversando del dinero de la feria.Antes de que pudiera entregar a
+            su mentor a las autoridades, Clint fue golpeado y tomado por muerto, permitiendo que el espadachín escapara
+            de la ciudad.
+            La relación de Clint con su hermano Barney y Trick Shot, pronto se deterioró.
+            Clint adaptó sus habilidades de tiro con arco para convertirse en una atracción de carnaval estrella, un
+            maestro arquero llamado "Ojo de Halcón", también conocida como “El tirador más grande del mundo”. Pasó algún
+            tiempo como miembro del Circo de Ringmaster, antes de unirse al Circo de Coney Island. Fue testigo de Iron
+            Man en acción y se inspiró para convertirse en un héroe disfrazado. Sin embargo, después de un malentendido
+            en su primera aparición, Ojo de Halcón fue acusado de robo y catalogado de criminal. En la huida, el ingenuo
+            Ojo de Halcón se topó con la Viuda Negra, una espía de la Unión Soviética, de la que se enamoró. Siguiendo
+            ciegamente a la Viuda Negra, Ojo de Halcón la ayudó en su intento de robar la tecnología desarrollada por
+            Tony Stark. En una de sus batallas con Iron Man, la Viuda Negra resultó gravemente herida. Ojo de Halcón la
+            rescató y huyó de la batalla para salvar su vida. Pero antes de que Ojo de Halcón pudiera llevarla a un
+            hospital, la Viuda Negra desapareció.
+            Ojo de Halcón decidió ser un "tirador recto" a partir de entonces.
         </div>
 
         <!-- Carusel galeria superheroe -->
@@ -78,7 +95,7 @@
                     </button>
                     <div class="card-2-projectsDivList">
                         <ul class="card-2-projectsList" id="card-2-projectsList">
-        
+
                         </ul>
                     </div>
                     <button class="card-2-projectBtn" onclick="someFunction(0)">
@@ -88,31 +105,70 @@
         </div>
 
 
-        <!-- Botón calificación -->
+        
+
+
+    </div>
 
     
-  </div>
-
-<!-- Calc y clasifica -->
-<div style="display:flex; justify-content: space-evenly;">
-    <button class="principales"  onclick="calc()"> Calcula Poderes  </button>
-    <button class="principales"  onclick="clasifica()"> Clasifica al Superheroe  </button>
-</div>
-  
-
-<!-- Menu abajo superheroe -->
-        <div class="bajo">
-            <a class="textos" href="https://developer.marvel.com/">Contactenos</a>
+    <div>
+        <!-- Calc y clasifica -->
+        <div style="display:flex; justify-content: space-evenly;">
+            <button class="principales" class="nav-item nav-link" onclick="toggle('q3')"> Calcula Poderes </button>
+            <button class="principales" onclick="clasifica()"> Clasifica al Superheroe </button>
         </div>
-  
-  
+    
+        <!-- Botón calificación -->
+        <div id="appBg">
+            <form name="calculator" id="q3" style="display:none;">
+                <input type="textfield" name="ans" value="" autocomplete="off" readonly >
 
-</div>
+                <input type="button" value="7" onclick="document.calculator.ans.value+='7'" class="gray">
+                <input type="button" value="8" onclick="document.calculator.ans.value+='8'" class="gray">
+                <input type="button" value="9" onclick="document.calculator.ans.value+='9'" class="gray">
+                <input type="button" value="+" onclick="document.calculator.ans.value+='+'" class="orange">
+                <br>
+                
+                <input type="button" value="4" onclick="document.calculator.ans.value+='4'" class="gray">
+                <input type="button" value="5" onclick="document.calculator.ans.value+='5'" class="gray">
+                <input type="button" value="6" onclick="document.calculator.ans.value+='6'" class="gray">
+                <input type="button" value="-" onclick="document.calculator.ans.value+='-'" class="orange">
+                <br>
+
+                <input type="button" value="1" onclick="document.calculator.ans.value+='1'" class="gray">
+                <input type="button" value="2" onclick="document.calculator.ans.value+='2'" class="gray">
+                <input type="button" value="3" onclick="document.calculator.ans.value+='3'" class="gray">
+                <input type="button" value="X" onclick="document.calculator.ans.value+='*'" class="orange">
+                <br>
+                <input type="button" value="0" onclick="document.calculator.ans.value+='0'" class="gray">
+                <input type="reset" value="C">
+                <input type="button" value="=" onclick="document.calculator.ans.value=eval(document.calculator.ans.value)">
+                <input type="button" value="/" onclick="document.calculator.ans.value+='/'" class="orange">
+            </form>
+        </div>
+    </div>
+    
 
 
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p" crossorigin="anonymous"></script>
-    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.10.2/dist/umd/popper.min.js" integrity="sha384-7+zCNj/IqJ95wo16oMtfsKbZ9ccEh31eOz1HGyDuCQ6wgnyJNSYdrPa03rtR1zdB" crossorigin="anonymous"></script>
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.min.js" integrity="sha384-QJHtvGhmr9XOIpI6YVutG+2QOK9T+ZnN4kzFN1RtK3zEFEIsxhlmWl5/YESvpZ13" crossorigin="anonymous"></script>
+    <!-- Menu abajo superheroe -->
+    <div class="bajo">
+        <a class="textos" href="https://developer.marvel.com/">Contactenos</a>
+    </div>
+
+
+
+    </div>
+
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p"
+        crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.10.2/dist/umd/popper.min.js"
+        integrity="sha384-7+zCNj/IqJ95wo16oMtfsKbZ9ccEh31eOz1HGyDuCQ6wgnyJNSYdrPa03rtR1zdB"
+        crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.min.js"
+        integrity="sha384-QJHtvGhmr9XOIpI6YVutG+2QOK9T+ZnN4kzFN1RtK3zEFEIsxhlmWl5/YESvpZ13"
+        crossorigin="anonymous"></script>
 
     <script src="./JS/main.js"></script>
 </body>
