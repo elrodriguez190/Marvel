@@ -73,30 +73,28 @@ function getMovies(){
     
     $.ajax(things) .done(function (response) {
         console.log(response);
-        var pelis =response.data.results[0];
-        console.log(pelis);
-        console.log(pelis.items.path+"."+pelis.items.extension)
+        var information =response.data.results[0];
+        console.log(information);
+        console.log(information.series.path+"."+information.series.extension)
     
-     
-        class SuperHeroe {
+        class Serie {
             constructor(name, img){
                 this.name = name;
-                this.img = img;
+                this.serie = serie;
             }
         }
     
-        const miSuperheroe= new SuperHeroe;
-        miSuperheroe.name = pelis.name;
-        miSuperheroe.img = pelis.items.path+"."+pelis.items.extension;
-        console.log(pelis.items);
+        const miSuperheroe= new Serie;
+        misPelis.name = information.name;
+        misPelis.serie = information.thumbnail.path+"."+information.series.extension;
+        console.log(misPelis.name);
     
-        var nombres = document.getElementsByClassName('nombreSuperHeroe');
-        nombres.innerHTML = miSuperheroe.name;
-        // ImageBitmapRenderingContext.src = miSuperheroe.name;
+        var nombres = document.getElementsByClassName('Serie');
+        nombres.innerHTML = misPelis.name;
     
-        var imagen = document.getElementById("imgSuperHeroe");
-        imagen.src = miSuperheroe.img;
-        console.log();
+        var pelis = document.getElementById("serieSuperHeroe");
+        pelis.src = misPelis.serie;
+        console.log(pelis);
     }) ;
     
 }
