@@ -36,6 +36,7 @@ var character = "prueba";
 console.log(character);
 
 
+
 //boton fecha
     function Showdate(){
         document.getElementById("dateT")
@@ -43,6 +44,7 @@ console.log(character);
     }
     document.getElementById("nombreHero").innerHTML="HawkEye"
 
+    
 
 //biografia, calc
     function toggle(obj) {
@@ -78,15 +80,15 @@ function getMovies(){
         console.log(information.series.path+"."+information.series.extension)
     
         class Serie {
-            constructor(name, img){
+            constructor(name, serie){
                 this.name = name;
                 this.serie = serie;
             }
         }
     
-        const miSuperheroe= new Serie;
+        const misPelis= new Serie;
         misPelis.name = information.name;
-        misPelis.serie = information.thumbnail.path+"."+information.series.extension;
+        misPelis.serie = information.thumbnail+"."+information.series.extension;
         console.log(misPelis.name);
     
         var nombres = document.getElementsByClassName('Serie');
@@ -99,9 +101,6 @@ function getMovies(){
     
 }
 
-
-
-
 // $.ajax(settings) .done(function getMovies() {
 //     console.log(response);
 
@@ -113,14 +112,18 @@ function getMovies(){
 
     //     var pelis = items.name;
     //     console.log(pelis);
+
+
+
+
 //comics
     function getComics(){
-
+        
         url = "https://gateway.marvel.com/v1/public/characters/";
         character_id = 1009338 ;
         resource_type = "comics";
         api_key = "4b525502df661367697f4ddc61942a24&";
-        request_url = url + String(character_id) + "/" + resource_type + "?apikey=" + api_key;
+        var request_url = url + String(character_id) + "/" + resource_type + "?apikey=" + api_key;
         
         response = request.get(request_url)
         response_json = response.json()
@@ -147,7 +150,8 @@ function getMovies(){
 
 
 
-//galeria carrousel
+//galeria carrousel 
+
 //   const imagenesDiv = document.getElementById("imagenes");
 
 //   fetch()
