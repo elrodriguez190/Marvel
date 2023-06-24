@@ -157,24 +157,28 @@ function getMovies(){
 
 
 //galeria carrousel
-const container = document.querySelector("#card-2-projectsList");
-let contentHTML = '';
+  const imagenesDiv = document.getElementById("imagenes");
 
-fetch(settings)
-  .then(response => response.json())
-  .then(data => {
-
-    for (const results of data) {
-     contentHTML += `
-        <li class="card-2-listContent">
-        <img class="card-2-projectImages" src="${results.download_url}">
-        </li>`
-    }
-    container.innerHTML = contentHTML;
-  })
+  fetch("https://gateway.marvel.com:443/v1/public/characters/1009338?apikey=4b525502df661367697f4ddc61942a24&hash=1f182aa8b805a294b1d4537e8292b15c&ts=1&limit=100")
+    .then(respuesta => respuesta.json())
+    .then(data => {
+      data.forEach(imagen => {
+        const imagenElement = document.createElement("img");
+        imagenElement.src = imagen.src;
+        imagenesDiv.appendChild(imagenElement);
+      });
+    })
+    .catch(error => console.error(error));
 
 
-
+    $(".carousel").slick({
+        dots: true,
+        infinite: true,
+        speed: 500,
+        slidesToShow: 1,
+        autoplay: true,
+        autoplaySpeed: 2000
+      });
 
     //Guardando datos 
     //llave publica 4b525502df661367697f4ddc61942a24
