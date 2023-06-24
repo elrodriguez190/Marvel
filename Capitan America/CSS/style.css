@@ -23,6 +23,7 @@ button {
     transition-duration: 0.4s;
     height: 50px;
     width: 100px;
+    
 }
 
 button:hover{
