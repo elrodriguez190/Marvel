@@ -44,7 +44,7 @@ console.log(character);
     document.getElementById("nombreHero").innerHTML="HawkEye"
 
 
-//biografia
+//biografia, calc
     function toggle(obj) {
         var obj=document.getElementById(obj);
         if (obj.style.display == "block") obj.style.display = "none";
