@@ -115,70 +115,97 @@ function getMovies(){
     //     console.log(pelis);
 //comics
     function getComics(){
-        var infor = {
-            "url": "http://gateway.marvel.com/v1/public/characters/1009338/series?apikey=4b525502df661367697f4ddc61942a24&hash=1f182aa8b805a294b1d4537e8292b15c&ts=1&limit=100",
-            "method": "GET",
-            "timeout": 0,
-        };
 
-        $.ajax(infor).done(function (response) {
-            console.log(response);
-            var pelis = response.data.results[0];
-            
-            console.log(pelis);
-            console.log(items.resourceURI.path + "." + items.resourceURI.extension)
-
-
-            class SuperHeroe {
-                constructor(name, img) {
-                    this.name = name;
-                    this.img = img;
-                }
-            }
-
-            const miSuperheroe = new SuperHeroe;
-            miSuperheroe.name = items.name;
-            miSuperheroe.img = items.resourceURI.path + "." + items.resourceURI.extension;
-            console.log(pelis.items);
-
-            var nombres = document.getElementsByClassName('nombreSuperHeroe');
-            nombres.innerHTML = miSuperheroe.name;
-            // ImageBitmapRenderingContext.src = miSuperheroe.name;
-
-            var imagen = document.getElementById("imgSuperHeroe");
-            imagen.src = miSuperheroe.img;
-            console.log();
-        });
+        url = "https://gateway.marvel.com/v1/public/characters/";
+        character_id = 1009338 ;
+        resource_type = "comics";
+        api_key = "4b525502df661367697f4ddc61942a24&";
+        request_url = url + String(character_id) + "/" + resource_type + "?apikey=" + api_key;
+        
+        response = request.get(request_url)
+        response_json = response.json()
+        
+        comics = response_json["data"]["results"]
+        for (comic in comics){
+            title = comic['title']
+            description = comic['description']
+            print(title, description)
+        }
             
     }
+
+
+
+    // var infor = {
+    //     "url": "http://gateway.marvel.com/v1/public/characters/1009338/series?apikey=4b525502df661367697f4ddc61942a24&hash=1f182aa8b805a294b1d4537e8292b15c&ts=1&limit=100",
+    //     "method": "GET",
+    //     "timeout": 0,
+    // };
+
 
 
 
 
 
 //galeria carrousel
-  const imagenesDiv = document.getElementById("imagenes");
+//   const imagenesDiv = document.getElementById("imagenes");
 
-  fetch("https://gateway.marvel.com:443/v1/public/characters/1009338?apikey=4b525502df661367697f4ddc61942a24&hash=1f182aa8b805a294b1d4537e8292b15c&ts=1&limit=100")
-    .then(respuesta => respuesta.json())
-    .then(data => {
-      data.forEach(imagen => {
-        const imagenElement = document.createElement("img");
-        imagenElement.src = imagen.src;
-        imagenesDiv.appendChild(imagenElement);
-      });
+//   fetch()
+//     .then(respuesta => respuesta.json())
+//     .then(data => {
+//       data.forEach(imagen => {
+//         const imagenElement = document.createElement("img");
+//         imagenElement.src = imagen.src;
+//         imagenesDiv.appendChild(imagenElement);
+//       });
+//     })
+//     .catch(error => console.error(error));
+
+axios.get('"https://gateway.marvel.com:443/v1/public/characters/1009338?apikey=4b525502df661367697f4ddc61942a24&hash=1f182aa8b805a294b1d4537e8292b15c&ts=1&limit=100"')
+    .then(function (response) {
+        crearCarrusel(response.data);
     })
-    .catch(error => console.error(error));
+    .catch(function (error) {
+        console.log(error);
+    })
+    function crearCarrusel(imagenes) {
+        var carousel = document.getElementById('carouselExampleSlidesOnly');
+      
+        // agregar imagenes al carrusel
+        imagenes.forEach(function (imagen, index) {
+          var divItem = document.createElement('div');
+          divItem.className = 'carousel-item';
+      
+          if (index === 0) {
+            divItem.classList.add('active');
+          }
+      
+          var img = document.createElement('img');
+          img.className = 'd-block w-100';
+          img.src = imagen.url;
+      
+          divItem.appendChild(img);
+          carousel.querySelector('.carousel-inner').appendChild(divItem);
+        });
+      }
+
+    ;
+
+    
+//formulario superheroe
+function mostrarForm(){ 
+    var formulario = document.getElementById('Formulario');
+    formulario.style.display = "block";  
+  }
+  
 
 
-    $(".carousel").slick({
-        dots: true,
-        infinite: true,
-        speed: 500,
-        slidesToShow: 1,
-        autoplay: true,
-        autoplaySpeed: 2000
-      });
+
+
+
+
+
+
 
     //Guardando datos 
     //llave publica 4b525502df661367697f4ddc61942a24
